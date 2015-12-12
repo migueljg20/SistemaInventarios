@@ -35,7 +35,7 @@
         <div class="col-md-12">
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
                   <div class="col-md-12">
-                    <fieldset class="scheduler-border">
+                  
                       <legend class="scheduler-border">Datos Generales</legend>
                         <div class="row form-group">
                           <div id="mensaje"></div>
@@ -125,7 +125,7 @@
                                 <label for="estado">ESTADO DE CONSERVACIÓN</label>
                                 <br>
                                 <label class="radio-inline">
-                                  <input type="radio" name="estadoConservacion" id="rbNuevo" value="N"> Nuevo
+                                  <input type="radio" name="estadoConservacion" id="rbNuevo" value="N" checked> Nuevo
                                 </label>
                                 <label class="radio-inline">
                                   <input type="radio" name="estadoConservacion" id="rbBueno" value="B"> Bueno
@@ -162,23 +162,24 @@
                           <div class="col-md-offset-2 col-md-8">
                             <input type="button" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL"/>
                           </div>
-                        </div>
+                        </div> 
+                  </form>
 
-                        <div class="row form-group">
-                          <div class="col-md-12 table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="tablaDatos">
-                              <thead>
-                                <tr>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">N°</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.Ant.</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.2015</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Barras</th>
-                                    <th colspan="4" class="text-center" style="vertical-align: middle;">Descripción del Bien</th>
-                                    <th colspan="3" class="text-center" style="vertical-align: middle;">Dimensiones</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
-                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
-                                </tr>
+                  <div class="row">
+                      <div class="col-md-12 table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                          <thead>
+                              <tr>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">N°</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.Ant.</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.2015</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Barras</th>
+                                  <th colspan="4" class="text-center" style="vertical-align: middle;">Descripción del Bien</th>
+                                  <th colspan="3" class="text-center" style="vertical-align: middle;">Dimensiones</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
+                              </tr>
                               <tr>
                                   <th class="text-center" style="vertical-align: middle;">Denominación</th>
                                   <th class="text-center" style="vertical-align: middle;">Marca</th>
@@ -188,18 +189,15 @@
                                   <th class="text-center" style="vertical-align: middle;">Ancho</th>
                                   <th class="text-center" style="vertical-align: middle;">Alto</th>
                               </tr>
-                              </thead>
-                              <tbody id="bienes">
+                          </thead>
+                          <tbody>
 
-                            </tbody>
-                        </table>
-                        </div>
-                        </div>
-                    </fieldset>
-
-                 </form>
-
+                          </tbody>
+                      </table>
+                    </div>
+                </div>
         </div>
+       
     </div> <!-- /container -->
 
 
