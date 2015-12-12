@@ -57,7 +57,7 @@
 
       <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-md-12">
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
                   <div class="col-md-12">
                     <fieldset class="scheduler-border">
@@ -90,43 +90,107 @@
                               <label for="area">ÁREA</label>
                               <input type="text"  name="area" id="txtarea" class="form-control" placeholder="Ingrese el área"/>
                           </div>
-                        </div>
-
-                        <div class="row form-group">
-                          <div class="col-md-offset-5">
-                            <input type="button" id="agregarCabecera" class="btn btn-md btn-primary" name="agregarCabecera" value="Agregar Recursos"/>
-                          </div>
-                        </div>
+                        </div>                        
                     </fieldset>
           </form>
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
                    <fieldset class="scheduler-border">
-                      <legend class="scheduler-border">Recursos</legend>
+                      <legend class="scheduler-border">Bienes</legend>
                         <div class="row form-group">
-                          <div class="col-md-offset-3 col-md-6">
-                              <label for="requerido">TRABAJO REQUERIDO</label>
-                              <select class="form-control" id="requerido" name="requerido" disabled=”disabled”/>
-                                <option value=''>Seleccionar Trabajo Requerido</option>
-                                  <?php
-                                      $con=@mysql_connect('localhost','root','');
-                                      @mysql_select_db("lindley");
+                          <div class="col-md-3">
+                              <label for="codigoInventario">CÓDIGO INVENTARIO</label>
+                              <input type="text"  name="codigoInventario" id="txtcodigoInventario" class="form-control" placeholder="Cod. Inventario"/>
+                          </div>
+                          <div class="col-md-3">
+                              <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
+                              <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015" class="form-control" placeholder="Cod. Inventario 2015"/>
+                          </div>
+                          <div class="col-md-3">
+                              <label for="codigobarras">CÓDIGO DE BARRAS</label>
+                              <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras"/>
+                          </div>
+                        </div>
+                         <legend class="scheduler-border">Descripción del Bien</legend>
+                         <div class="row form-group">
+                           <div class="col-md-12">
+                              <label for="denominacion">DENOMINACIÓN</label>
+                              <input type="text"  name="denominacion" id="txtdenominacion" class="form-control" placeholder="Ingrese una denominación"/>
+                          </div>
+                         </div>
+                          <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="marca">MARCA</label>
+                                <input type="text"  name="marca" id="txtmarca" class="form-control" placeholder="Ingrese una marca"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="modelo">MODELO</label>
+                                <input type="text"  name="modelo" id="txtmodelo" class="form-control" placeholder="Ingrese un modelo"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="serie">SERIE</label>
+                                <input type="text"  name="serie" id="txtserie" class="form-control" placeholder="Ingrese una serie"/>
+                            </div>
+                          </div> 
 
-                                      $sql = "SELECT trabajoRequeridoID, descripcion FROM TrabajoRequerido order by descripcion asc";
-                                      $resultado = @mysql_query($sql);
-                                      while ($row=@mysql_fetch_row($resultado)) {
-                                          echo "<option value='".$row['0']."'>".utf8_decode($row['1'])."</option>";
-                                      }
-                                  ?>
-                              </select>
+                           <legend class="scheduler-border">Dimensiones</legend>     
+                           <div class="row form-group">
+                              <div class="col-md-2">
+                                <label for="largo">LARGO</label>
+                                <input type="text"  name="largo" id="txtlargo" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="ancho">ANCHO</label>
+                                <input type="text"  name="ancho" id="txtancho" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="alto">ALTO</label>
+                                <input type="text"  name="alto" id="txtalto" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-5 col-md-offset-1">
+                                <label for="estado">ESTADO DE CONSERVACIÓN</label>
+                                <br>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacion" id="rbNuevo" value="N"> Nuevo
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacion" id="rbBueno" value="B"> Bueno
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacion" id="rbRegular" value="R"> Regular
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacion" id="rbMalo" value="M"> Malo
+                                </label>
+                            </div>
+                            
+                           </div>  
+
+                           <div class="row form-group">
+                              <div class="col-md-2">                                 
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="etiquetado" id="chkEtiquetado"> Etiquetado
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-2">                                 
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="operativo" id="chkOperativo"> Operativo
+                                    </label>
+                                  </div>
+                              </div>
+                            </div>              
+
+                         </div>
+                        <div class="row form-group">
+                          <div class="col-md-offset-2 col-md-8">
+                            <input type="button" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL" disabled=”disabled”/>
                           </div>
                         </div>
+
                         <div class="row form-group">
-                          <div class="col-md-offset-5">
-                            <input type="button" class="btn btn-md btn-primary" name="btnAgregarDetalle" id="btnAgregarDetalle" value="Agregar" disabled=”disabled”/>
-                          </div>
-                        </div>
-                        <div class="row form-group">
-                          <div class="col-md-offset-1 col-md-10 table-responsive">
+                          <div class="col-md-12 table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="tablaDatos">
                               <thead>
                                 <tr>
