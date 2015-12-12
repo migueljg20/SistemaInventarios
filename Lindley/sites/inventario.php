@@ -9,34 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <title>Empresas Contratistas</title>
     <script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/cabeceraDetalle.js"></script>
-    <script type="text/javascript" src="../js/comboObjeInicial.js"></script>
+    <script type="text/javascript" src="../js/inventario.js"></script>
     <link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/theme.css">
-    <script>
-        function numbersonly(e) {
-            var unicode = e.charCode ? e.charCode : e.keyCode
-        if (unicode != 8 && unicode != 46) {
-            if (unicode < 48 || unicode > 57) //if not a number
-            { return false } //disable key press
-        }
-    }
-
-    function eliminar(id) {
-        $.ajax({
-        type: 'POST',
-        data: 'detalle='+id+'&tipo='+3,
-        url: '../scripts/grabaDetalle.php',
-        success: function(data){
-            $('#proforma').html(data);
-            $('#cantidad').val('');
-            $('#unidad').val('');
-            $('#descripcion').val('');
-            $('#unitario').val('');
-        }
-      });
-  }
-    </script>
   </head>
 
   <body role="document">
@@ -185,7 +160,7 @@
                          </div>
                         <div class="row form-group">
                           <div class="col-md-offset-2 col-md-8">
-                            <input type="button" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL" disabled=”disabled”/>
+                            <input type="button" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL"/>
                           </div>
                         </div>
 
@@ -194,11 +169,27 @@
                             <table class="table table-striped table-bordered table-hover" id="tablaDatos">
                               <thead>
                                 <tr>
-                                  <th class="text-center">TRABAJO REQUERIDO</th>
-                                  <th class="text-center">OPERACIONES</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">N°</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.Ant.</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.2015</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Barras</th>
+                                    <th colspan="4" class="text-center" style="vertical-align: middle;">Descripción del Bien</th>
+                                    <th colspan="3" class="text-center" style="vertical-align: middle;">Dimensiones</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
+                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
                                 </tr>
+                              <tr>
+                                  <th class="text-center" style="vertical-align: middle;">Denominación</th>
+                                  <th class="text-center" style="vertical-align: middle;">Marca</th>
+                                  <th class="text-center" style="vertical-align: middle;">Modelo</th>
+                                  <th class="text-center" style="vertical-align: middle;">Serie</th>
+                                  <th class="text-center" style="vertical-align: middle;">Largo</th>
+                                  <th class="text-center" style="vertical-align: middle;">Ancho</th>
+                                  <th class="text-center" style="vertical-align: middle;">Alto</th>
+                              </tr>
                               </thead>
-                              <tbody id="proforma">
+                              <tbody id="bienes">
 
                             </tbody>
                         </table>
@@ -207,9 +198,7 @@
                     </fieldset>
 
                  </form>
-                 <div>
-                   <a href="proforma-compra.php"><input type="button" id="imprimir" class="btn btn-md btn-primary pull-right" name="imprimir" value="Registrar Plan de Trabajo" disabled=”disabled”/></a>
-                </div>
+
         </div>
     </div> <!-- /container -->
 
