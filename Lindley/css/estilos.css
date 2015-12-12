@@ -1,0 +1,49 @@
+
+
+.page-header{
+	font-family: 'Nova Square', cursive;
+  	font-weight: bolder;
+  	color: #720D12;  
+}
+
+.page-header h1{
+	font-family: 'Berkshire Swash', cursive;
+  	font-weight: bolder;  	 
+}
+
+.theme-showcase .jumbotron{
+	padding: 10px;
+}
+
+.theme-showcase .jumbotron h1{
+	font-size: 35px;
+	font-family: 'Nova Square', cursive;
+  	font-weight: bolder;
+  	color: #720D12;
+}
+
+.theme-showcase .jumbotron p{
+	font-size: 18px;		
+}
+
+.fuente{
+	font-family: 'Nova Square', cursive;
+  	font-weight: bolder;  
+}
+
+.subfuente{
+	font-family: 'Nova Square', cursive;
+}
+
+.row .list-group-item{
+	margin-bottom: 10px;
+}
+
+.page-header h3{
+	padding:0px 0px;
+}
+
+.theme-showcase .rbtnSexo{
+	display: inline-block;
+}
+

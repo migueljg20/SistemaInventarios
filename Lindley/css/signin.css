@@ -1,0 +1,67 @@
+body {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background: #294072;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #1C2B4A;
+  border-radius: 10px; 
+  margin-top: 30px; 
+  border-style: outset; 
+  border-width: 3px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;  
+  font-family: 'Nova Square', cursive;
+  font-weight: bolder; 
+  color: #DADEDA;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .espacioBotones{
+  margin-bottom: 15px;
+  font-family: 'Nova Square', cursive;
+  color: #DADEDA;
+}
+
+.form-signin .sign label{  
+  font-family: 'Nova Square', cursive;  
+  color: #DADEDA;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;  
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.espacio{
+  margin-top: 10px;
+}
+

@@ -1,0 +1,26 @@
+
+.listaDatos{
+	margin-left: -10px;
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	background-color: #fff;
+}
+
+#btnEliminarTR{
+	display: none;
+}
+#tablaDatos{
+	padding-top: 10px;
+	padding-bottom: 8px;
+	margin-top: 50px;
+}
+thead,tfoot{
+	background-color: #ccc;
+}
+#tablaDatos_previous,#tablaDatos_next{
+	color: #000 !important;
+}
+#tablaDatos_previous:hover,#tablaDatos_next:hover{
+	color: #fff !important;
+}
