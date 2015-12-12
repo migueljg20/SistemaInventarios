@@ -22,7 +22,7 @@
 
             <div class="col-md-9">
                     <?php $time = time(); ?>
-                    <h4 class="text-center"><strong>INVENTARIO FÍSICO DE BIENES PATRIMONIALES - FECHA <?php echo date("d/m/Y", $time) ?></h4>
+                    <h4 class="text-center"><strong>INVENTARIO FÍSICO DE BIENES PATRIMONIALES - FECHA <?php echo date("d/m/Y", $time) ?></strong></h4>
             </div>
             <div class="col-md-2 col-md-offset-1">
                 <h4>N° 000038</h4>
