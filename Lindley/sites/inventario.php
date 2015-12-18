@@ -66,7 +66,7 @@
                               <input type="text"  name="area" id="txtarea" class="form-control" placeholder="Ingrese el área"/>
                           </div>
                         </div>                        
-                    </fieldset>
+
           </form>
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
                    <fieldset class="scheduler-border">
