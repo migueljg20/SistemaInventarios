@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../css/lindley.css">
-    <title>Empresas Contratistas</title>
+    <title>Principal</title>
 
     <link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/theme.css">
@@ -26,16 +26,24 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
               </ol>
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
+                  <img src="../img/banner01.jpg" alt="Chania">
+                </div>
+
+                <div class="item">
                   <img src="../img/banner02.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
-                  <img src="../img/banner03.jpg" alt="Chania">
+                  <img src="../img/banner03.jpg" alt="Flower">
                 </div>
 
                 <div class="item">
@@ -44,6 +52,14 @@
 
                 <div class="item">
                   <img src="../img/banner05.jpg" alt="Flower">
+                </div>
+
+                <div class="item">
+                  <img src="../img/banner06.jpg" alt="Flower">
+                </div>
+
+                <div class="item">
+                  <img src="../img/banner07.jpg" alt="Flower">
                 </div>
               </div>
 
@@ -57,9 +73,9 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-          </div>
-          <div class="container">
-            <div class="row">
+          
+          
+            
               
               <div class="col-md-12">
                 <div class="cuadro-contenido box-gris marco-estrategico">      
@@ -96,12 +112,13 @@
                     </div>
                   </div>
                 </div>
-            </div>
+                </div>
               </div>
              
-            </div>
             
-          </div>
+        </div>
+            
+          
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
