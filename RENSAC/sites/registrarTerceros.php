@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <title>Empresas Contratistas</title>
+    <title>Inventario General</title>
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/inventario.js"></script>
     <link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/theme.css">
+    
   </head>
 
   <body role="document">
@@ -40,33 +41,38 @@
                         <div class="row form-group">
                           <div id="mensaje"></div>
                           <div class="col-md-4">
-                            <label for="local">LOCAL</label>
-                            <input id="txtlocal" type="text" class="form-control" name="local" placeholder="Ingrese el Local" required>
+                            <label for="dependencia">DEPENDENCIA</label>
+                            <input type="text" class="form-control" name="dependencia"  id="txtdependencia"  placeholder="Ingrese la dependencia"/>
                           </div>
                           <div class="col-md-4">
-                            <label for="fechaInicio">UBICACIÓN</label>
-                            <input type="text"  name="fechaInicio" id="fechaInicio" class="form-control" placeholder="Ingrese la ubicación"/>
+                            <label for="unidadOrganica">UNIDAD ORGÁNICA</label>
+                            <input type="text" class="form-control" name="unidadOrganica" id="txtunidadOrganica"  placeholder="Ingrese la unidad orgánica"/>
                           </div>
                           <div class="col-md-4">
-                            <label for="fecha">FECHA</label>
-                            <input type="date"  name="fecha" id="txtfecha" class="form-control" value="<?php echo date("d/m/Y", $time) ?>"/>
+                            <label for="ubicacion">UBICACIÓN</label>
+                            <input type="text" class="form-control" name="ubicacion" id="txtubicacion" placeholder="Ingrese la unidad orgánica"/>
                           </div>
                         </div>
                         <div class="row form-group">
                           <div class="col-md-4">
-                              <label for="dependencia">DEPENDENCIA</label>
-                              <input type="text"  name="dependencia" id="txtdependencia" class="form-control" placeholder="Ingrese la dependencia"/>
+                              <label for="responsable">USUARIO RESPONSABLE</label>
+                              <input type="text" class="form-control" name="responsable" id="txtresponsable" placeholder="Ingrese el usuario responsable"/>
                           </div>
                           <div class="col-md-4">
-                            <label for="ambiente">AMBIENTE</label>
-                            <input id="txtambiente" type="text" class="form-control" name="ambiente" placeholder="Ingrese el ambiente">
+                            <label for="inventariador">INVENTARIADO POR</label>
+                            <input type="text" class="form-control" id="txtinventariador" name="inventariador" placeholder="Ingrese el inventariador"/>
                           </div>
-                          <div class="col-md-4">
-                              <label for="area">ÁREA</label>
-                              <input type="text"  name="area" id="txtarea" class="form-control" placeholder="Ingrese el área"/>
+                          <div class="col-sm-4">
+                              <label for="fechaHora">FEHA Y HORA</label>
+                               <div class='input-group date' id='datetimepicker2'>
+                                  <input type='text' class="form-control" />
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                              </div>
                           </div>
                         </div>                        
-
+                    </fieldset>
           </form>
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
                    <fieldset class="scheduler-border">
@@ -165,6 +171,7 @@
                         </div> 
                   </form>
 
+                 
                   <div class="row">
                       <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered table-hover">
@@ -197,12 +204,13 @@
                     </div>
                 </div>
         </div>
+
        
     </div> <!-- /container -->
 
 
 
-    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>    
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

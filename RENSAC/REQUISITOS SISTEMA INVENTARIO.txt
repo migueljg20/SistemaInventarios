@@ -1,0 +1,17 @@
+* CUANDO SE REGISTRE UN NUEVO INVENTARIO:
+----------------------------------------
+
+A) PARA LA CABECERA:
+--------------------
+- Ingresar el local.
+- Se debe seleccionar la ubicacion (combobox).
+- Se debe cargar automaticamente los usuarios de la ubicacion seleccionada.
+- Se debe cargar el cargo del usuario selecionado.
+- Se debe ingresar la dependencia, el ambiente, el área y la fecha.
+- Se debe seleccionar los inventariadorres (2 combobox)... si se selecciona 1, ese no debe aparecer en el otro combo.
+
+B) PARA EL DETALLE:
+-------------------
+- Se ingresará e código de barras, se presionará un botón, en caso exista se llenarán los campos del bien y se podrá agregar a la fila.
+- En caso no exista se tendrán que digitar todos esos datos.
+

@@ -14,7 +14,7 @@
             header("location:../sites/principal.php");
 
     } else {
-        echo "<script>alert('El usuario o password es incorrecto intente nuevamente.'); 
+        echo "<script>alert('El usuario o password es incorrecto, intente nuevamente.'); 
         window.location='../index.php';</script>";
     }
 
