@@ -25,6 +25,7 @@ create table inventariadores
 	celular varchar(20),
 	direccion text
 );
+
 create table invAlmacenCabecera
 (
 	idInv varchar(10) NOT NULL PRIMARY KEY, 
@@ -41,9 +42,11 @@ create table invAlmacenCabecera
 	FOREIGN KEY (inventariador1) REFERENCES inventariadores(dni),
 	FOREIGN KEY (inventariador2) REFERENCES inventariadores(dni)
 );
+
 create table invAlmacenDetalle
 (
 	idInv varchar(10),
+	codigoAntiguo varchar(30),
 	codigoInventario varchar(30),
 	codigoBarras varchar(10),
 	denominacion text,
@@ -60,3 +63,7 @@ create table invAlmacenDetalle
 	FOREIGN KEY (idInv) REFERENCES invAlmacenCabecera(idInv)
 );
 
+
+INSERT INTO inventariadores (dni, nombre) VALUES ('54851516', 'Ulloa Caycho Junior');
+INSERT INTO inventariadores (dni, nombre) VALUES ('68518475', 'Acevedo Arroyo Francesca');
+INSERT INTO inventariadores (dni, nombre) VALUES ('65742154', 'Tongo Gomez Franklin');

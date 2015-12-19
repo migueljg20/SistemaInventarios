@@ -1,4 +1,12 @@
+<?php 
 
+  include ('../scripts/functions.php');
+
+  $usuarios   = getUsuarios();
+  $inventariadores   = getInventariadores();
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -38,56 +46,80 @@
                           <div class="col-md-4">
                             <label for="idInventario">N° INVENTARIO</label>
                             <div class="input-group">                             
-                              <input type="text"  name="idInventario" id="txtidInventario" class="form-control" placeholder="N° de Inventario"/>
+                              <input type="text"  name="idInventario" id="idInventario" class="form-control" placeholder="N° de Inventario"/>
                               <span class="input-group-btn">
-                                <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                                <button id="verNumeroInventario" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
                               </span>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <label for="fecha">FECHA</label>
-                            <input type="date"  name="fecha" id="txtfecha" class="form-control" value="<?php echo date("d/m/Y", $time) ?>"/>
+                            <input type="date"  name="fecha" id="fecha" class="form-control" value="<?php echo date("d/m/Y", $time) ?>"/>
                           </div>
                            <div class="col-md-4">
                             <label for="local">LOCAL</label>
-                            <input id="txtlocal" type="text" class="form-control" name="local" placeholder="Ingrese el Local" required>
+                            <input id="local" type="text" class="form-control" name="local" placeholder="Ingrese el Local" required>
                           </div>                          
                         </div>
                         <div class="row form-group">
                           <div id="mensaje"></div>
                          
                           <div class="col-md-4">
-                            <label for="fechaInicio">UBICACIÓN</label>
-                            <input type="text"  name="fechaInicio" id="fechaInicio" class="form-control" placeholder="Ingrese la ubicación"/>
+                            <label for="ubicacion">UBICACIÓN</label>
+                            <input type="text"  name="ubicacion" id="ubicacion" class="form-control" placeholder="Ingrese la ubicación"/>
                           </div>
                           <div class="col-md-4">
                               <label for="usuario">USUARIO</label>
                               <select id="usuario" name="usuario" class="form-control" required>
-                                  <option value=""></option>
-                                 
-                                  <option value="<?= $zona[0] ?>"><?= $zona[1] ?></option>
-                                 
+                                <option value=""></option>
+                                  <?php foreach ($usuarios as $usuario): ?>
+                                      <option value="<?= $usuario[0] ?>"><?= $usuario[0] ?></option>
+                                  <?php endforeach ?>                                 
                               </select>
                           </div>
                           <div class="col-md-4">
                             <label for="cargo">CARGO</label>
-                             <input type="text"  name="cargo" id="txtcargo" class="form-control" disabled=”disabled”/>
+                             <input type="text"  name="cargo" id="cargo" class="form-control" disabled=”disabled”/>
                           </div>
                         </div>
                         <div class="row form-group">
                           <div class="col-md-4">
                               <label for="dependencia">DEPENDENCIA</label>
-                              <input type="text"  name="dependencia" id="txtdependencia" class="form-control" placeholder="Ingrese la dependencia"/>
+                              <input type="text"  name="dependencia" id="dependencia" class="form-control" placeholder="Ingrese la dependencia"/>
                           </div>
                           <div class="col-md-4">
                             <label for="ambiente">AMBIENTE</label>
-                            <input id="txtambiente" type="text" class="form-control" name="ambiente" placeholder="Ingrese el ambiente">
+                            <input id="ambiente" type="text" class="form-control" name="ambiente" placeholder="Ingrese el ambiente">
                           </div>
                           <div class="col-md-4">
                               <label for="area">ÁREA</label>
-                              <input type="text"  name="area" id="txtarea" class="form-control" placeholder="Ingrese el área"/>
+                              <input type="text"  name="area" id="area" class="form-control" placeholder="Ingrese el área"/>
                           </div>
-                        </div>                        
+                        </div> 
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="inventariador1">INVENTARIADOR 1</label>
+                                <select id="inventariador1" name="inventariador1" class="form-control" required>
+                                     <option value=""></option>
+                                      <?php foreach ($inventariadores as $inventariador): ?>
+                                          <option value="<?= $inventariador[0] ?>"><?= $inventariador[1] ?></option>
+                                      <?php endforeach ?> 
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inventariador2">INVENTARIADOR 2</label>
+                                <select id="inventariador2" name="inventariador2" class="form-control" required>
+                                   <option value=""></option>
+                                      <?php foreach ($inventariadores as $inventariador): ?>
+                                          <option value="<?= $inventariador[0] ?>"><?= $inventariador[1] ?></option>
+                                      <?php endforeach ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                              <br>
+                              <input type="button" id="btnAgregarCabecera" class="btn btn-md btn-primary btn-block" name="agregarCabecera" value="Agregar Encabezado"/>
+                            </div>
+                          </div>                       
                     </fieldset>
           </form>
           <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
@@ -137,6 +169,7 @@
                                 <input type="text"  name="serie" id="txtserie" class="form-control" placeholder="Ingrese una serie"/>
                             </div>
                           </div> 
+                          
 
                            <legend class="scheduler-border">Dimensiones</legend>     
                            <div class="row form-group">
@@ -205,7 +238,7 @@
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.Ant.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.2015</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Barras</th>
-                                  <th colspan="4" class="text-center" style="vertical-align: middle;">Descripción del Bien</th>
+                                  <th colspan="5" class="text-center" style="vertical-align: middle;">Descripción del Bien</th>
                                   <th colspan="3" class="text-center" style="vertical-align: middle;">Dimensiones</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
@@ -216,6 +249,7 @@
                                   <th class="text-center" style="vertical-align: middle;">Marca</th>
                                   <th class="text-center" style="vertical-align: middle;">Modelo</th>
                                   <th class="text-center" style="vertical-align: middle;">Serie</th>
+                                  <th class="text-center" style="vertical-align: middle;">Color</th>
                                   <th class="text-center" style="vertical-align: middle;">Largo</th>
                                   <th class="text-center" style="vertical-align: middle;">Ancho</th>
                                   <th class="text-center" style="vertical-align: middle;">Alto</th>
