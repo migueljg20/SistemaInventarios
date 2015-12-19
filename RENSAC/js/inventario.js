@@ -3,9 +3,21 @@ $(document).on('ready', funcPrincipal);
 function funcPrincipal() {
     $('#btnAgregarDetalle').on('click', agregarFila);
     $('#btnAgregarCabecera').on('click', agregarCabecera);
+    $('#btnVerCodBarras').on('click', verCodBarras);
+    
 }
 
 function agregarFila() {
+
+    var num = $('#detalleInventario tr:last').find('[data-i]').text();
+   
+    if (num == 16){
+        alert('Ya no se pueden agregar más bienes a este inventario.');
+        return;
+
+    }
+
+
     var cod1 = $('#txtcodigoInventario').val();
     var cod2 = $('#txtcodigoInventario2015').val();
     var codbar = $('#txtcodigobarras').val();
@@ -58,7 +70,7 @@ function agregarFila() {
         success: function(data){
             if (data.error) {
                 alert(data.mensaje);
-            }else{
+            }else{                
                 alert(data.mensaje);
 
                     $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td></tr>');
@@ -75,20 +87,13 @@ function agregarFila() {
                     $('#txtlargo').val('');
                     $('#txtancho').val('');
                     $('#txtalto').val('');
-                    $("#rbNuevo").attr('checked', 'checked');
+                    $("#rbNuevo").attr('checked', true);
                     $("#chkEtiquetado").attr('checked', false);
                     $("#chkOperativo").attr('checked', false);
 
-
-            }                
-                   
+            }             
         } 
-    });
-   
-
-    
-    
-   
+    });   
 }
 
 function actualizarEnumeracion() {
@@ -140,6 +145,34 @@ function agregarCabecera() {
                     $('#area').attr('disabled','disabled');
                     $('#inventariador1').attr('disabled','disabled');
                     $('#inventariador2').attr('disabled','disabled');
+            }                
+                   
+        } 
+    });
+}
+
+function verCodBarras() {
+    var datosEnviados = 
+    {
+        'codigoBarras' : $('#txtcodigobarras').val()       
+    };
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verCodBarras.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error) {
+                alert(data.mensaje);
+            }else{               
+                $('#txtcodigoInventario').val(data.codigoInterno);
+                $('#txtdenominacion').val(data.denominacion);
+                $('#txtmarca').val(data.marca);                  
+                $('#txtmodelo').val(data.modelo);
+                $('#txtserie').val(data.serie);
+                $("input[name=estadoConservacion][value='"+data.estado.substring(0, 1)+"']").prop("checked",true);
             }                
                    
         } 

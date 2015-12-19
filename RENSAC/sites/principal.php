@@ -76,14 +76,10 @@
           
           
             
-              
+              <div class="row">
               <div class="col-md-12">
                 <div class="cuadro-contenido box-gris marco-estrategico">      
-                <div class="texto-libre">
-                  <a name="marco_estrategico"></a>
-                  <h3>Marco Estrat&eacute;gico</h3>
-                  <p>Son las definiciones centrales del prop&oacute;sito y direcci&oacute;n de la empresa. Describe el porqu&eacute; existimos y qu&eacute; queremos llegar a ser, cu&aacute;l es nuestro negocio, cual es nuestro cliente y c&oacute;mo hacemos la diferencia frente a nuestros competidores. Se revisa anualmente en un taller con la Direcci&oacute;n donde se debate el mantenimiento o replanteamiento de su contenido expresado en la Misi&oacute;n, Visi&oacute;n, Valores de la compa&ntilde;ia. Ordinariamente se incluye tambi&eacute;n las Pol&iacute;ticas Organizacionales.</p>
-                </div>
+                
 
                 <div class="box-mision-vision visible-desktop">
                   <div style="position: absolute"><img src="../img/backg-mision-vision.png" border="0" style="width: 100%" /></div>
@@ -92,12 +88,12 @@
                     <div class="texto-libre box-mision">
                       <h4>Misi&oacute;n</h4>
                       <h5>...nuestra raz&oacute;n de ser</h5>
-                      <p>Operar con excelencia para ser la opci&oacute;n preferida de clientes y consumidores, logrando un crecimiento rentable y sostenible y generando valor a nuestros p&uacute;blicos de inter&eacute;s.</p>
+                      <p>Nuestra raz&oacute;n de ser como empresa es satisfacer las necesidades de nuestros clientes a nivel mundial mediante el intercambio de bienes y servicios de calidad, promover el crecimiento econ&oacute;mico y desarrollo de nuestro Pa&iacute;s.</p>
                     </div>
                     <div class="texto-libre box-vision">
                       <h4>Visi&oacute;n</h4>
                       <h5>...nuestro destino</h5>
-                      <p>Ser la empresa peruana de clase mundial l&iacute;der en bebidas no alcoh&oacute;licas.</p>
+                      <p>Ser en el 2020 una de las 10 primeras empresas l&iacute;der a nivel nacional en el intercambio de bienes y servicios de calidad para nuestros clientes.</p>
                     </div>
                     <div class="texto-libre lista-medios">
                       <p class="texto-medios medio01">Talento Comprometido</p>
@@ -113,6 +109,7 @@
                   </div>
                 </div>
                 </div>
+              </div>
               </div>
              
             

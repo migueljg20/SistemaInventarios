@@ -139,7 +139,7 @@
                              <div class="input-group">                                 
                               <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras"/>
                               <span class="input-group-btn">
-                                <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                                <button id="btnVerCodBarras" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
                               </span>
                             </div>
                           </div>
@@ -231,7 +231,7 @@
 
                   <div class="row">
                       <div class="col-md-12 table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table id="detalleInventario" class="table table-striped table-bordered table-hover">
                           <thead>
                               <tr>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">N°</th>

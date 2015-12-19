@@ -15,19 +15,19 @@
   -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
      -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 20px;
-     -moz-border-radius: 20px;
-          border-radius: 20px;
-	margin: 14px 0px;
-	padding: 13px 15px;
+  -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+          border-radius: 25px;
+	margin: 15px 0px;
+	
 }
 
 .box-gris {
 	background-color: #F3F3F3;
-	width: 1120px;
+	width: 1000px;
 	height: auto;
 	display: inline-table;
-	padding: 20px 54px 28px 54px;
+	padding: 0px 20px 28px 0px;
 	position: relative;
 	float: left;
 }
@@ -54,7 +54,7 @@
 
 .texto-libre h3 {
 	font-family: 'VAGRoundedStd-Light', Arial, Helvetica, sans-serif !important;
-	font-size: 24px;
+	font-size: 15px;
 	font-weight: bold;
 	margin: 21px 0px;
 	color: #010001;
@@ -73,7 +73,7 @@
 
 .texto-libre h5 {
 	font-family: 'VAGRoundedStd-Light', Arial, Helvetica, sans-serif !important;
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: bold;
 	margin: 7px 0px;
 	color: #000000;
@@ -82,8 +82,8 @@
 
 .texto-libre p {
 	font-family: 'VAGRoundedStd-Light', Arial, Helvetica, sans-serif;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 15px;
+	line-height: 20px;
 	color: #000000;
 	clear: both;
 	text-align: justify;
@@ -149,7 +149,7 @@
 
 .box-mision {
 	width: 230px;
-	margin: 98px 0px 0px 104px;
+	margin: 40px 0px 0px 104px;
 	clear: none;
 	float: left;
 }
@@ -163,7 +163,7 @@
 
 .box-mision p, .box-vision p, .texto-libre p.texto-medios {
 	text-align: left;
-	font-size: 17px;
+	font-size: 14px;
 }
 
 .lista-medios {
