@@ -59,7 +59,7 @@
 	}
 	else
 	{		
-		$datos['mensaje'] = "No existe este número de inventario!";	
+		$datos['mensaje'] = "El inventario no tiene detalles de bienes aún!";	
 		$datos['error'] = true;
 	}
 	

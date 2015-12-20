@@ -38,7 +38,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-12">
-          <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
+          <form id="formCabecera">
                   <div class="col-md-12">                      
                   
                       <legend class="scheduler-border">Datos Generales</legend>
@@ -117,12 +117,12 @@
                             </div>
                             <div class="col-md-4">
                               <br>
-                              <input type="button" id="btnAgregarCabecera" class="btn btn-md btn-primary btn-block" name="agregarCabecera" value="Agregar Encabezado"/>
+                              <input type="submit" id="btnAgregarCabecera" class="btn btn-md btn-primary btn-block" name="agregarCabecera" value="Agregar Encabezado"/>
                             </div>
                           </div>                       
                     </fieldset>
           </form>
-          <form id="form-equipo" method="POST" action="" enctype="multipart/form-data">
+          <form id="formDetalle">
                    <fieldset class="scheduler-border">
                       <legend class="scheduler-border">Bienes</legend>
                         <div class="row form-group">
@@ -132,12 +132,12 @@
                           </div>
                           <div class="col-md-3">
                               <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
-                              <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015" class="form-control" placeholder="Cod. Inventario 2015"/>
+                              <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015" class="form-control" placeholder="Cod. Inventario 2015" required/>
                           </div>
                           <div class="col-md-3">
                              <label for="codigobarras">CÓDIGO DE BARRAS</label>
                              <div class="input-group">                                 
-                              <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras"/>
+                              <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras" required/>
                               <span class="input-group-btn">
                                 <button id="btnVerCodBarras" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
                               </span>
@@ -148,11 +148,11 @@
                          <div class="row form-group">
                            <div class="col-md-9">
                               <label for="denominacion">DENOMINACIÓN</label>
-                              <input type="text"  name="denominacion" id="txtdenominacion" class="form-control" placeholder="Ingrese una denominación"/>
+                              <input type="text"  name="denominacion" id="txtdenominacion" class="form-control" placeholder="Ingrese una denominación" required/>
                            </div>
                            <div class="col-md-3">
                               <label for="color">COLOR</label>
-                              <input type="text"  name="color" id="txtcolor" class="form-control" placeholder="Ingrese un color"/>
+                              <input type="text"  name="color" id="txtcolor" class="form-control" placeholder="Ingrese un color" required/>
                            </div>
                          </div>
                           <div class="row form-group">
@@ -215,7 +215,7 @@
                               <div class="col-md-2">                                 
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" name="operativo" id="chkOperativo"> Operativo
+                                      <input type="checkbox" name="operativo" id="chkOperativo" checked> Operativo
                                     </label>
                                   </div>
                               </div>
@@ -224,7 +224,7 @@
                          </div>
                         <div class="row form-group">
                           <div class="col-md-offset-2 col-md-8">
-                            <input type="button" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL"/>
+                            <input type="submit" class="btn btn-md btn-primary btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" value="AGREGAR BIEN PATRIMONIAL"/>
                           </div>
                         </div> 
                   </form>

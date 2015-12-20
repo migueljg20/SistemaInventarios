@@ -1,13 +1,14 @@
 $(document).on('ready', funcPrincipal);
 
 function funcPrincipal() {
-    $('#btnAgregarDetalle').on('click', agregarFila);
-    $('#btnAgregarCabecera').on('click', agregarCabecera);
+    $('#formDetalle').on('submit', agregarFila);
+    $('#formCabecera').on('submit', agregarCabecera);
     $('#btnVerCodBarras').on('click', verCodBarras);
     $('#verNumeroInventario').on('click', verInventario);
 }
 
 function agregarFila() {
+    event.preventDefault();
 
     var num = $('#detalleInventario tr:last').find('[data-i]').text();
    
@@ -16,7 +17,6 @@ function agregarFila() {
         return;
 
     }
-
 
     var cod1 = $('#txtcodigoInventario').val();
     var cod2 = $('#txtcodigoInventario2015').val();
@@ -42,6 +42,18 @@ function agregarFila() {
     } else {
         operativo = 'I';
     }
+
+    if(cod2.length == 0)
+    {
+        alert('Debe asignarse un codigo de inventario actual!');
+        return;
+    }
+    if(codbar.length == 0)
+    {
+        alert('Debe asignarse un codigo de barras al bien!');
+        return;
+    }
+
     var datosEnviados = 
     {
        'idInventario' : $('#idInventario').val(),
@@ -104,10 +116,16 @@ function actualizarEnumeracion() {
 }
 
 function agregarCabecera() {
+    event.preventDefault();
+
+    var idInve =  $('#idInventario').val()
+    var i1 = $('#inventariador1').val();
+    var i2 = $('#inventariador2').val();
+    var fecha = $('#fecha').val();
     var datosEnviados = 
     {
-        'idInventario' : $('#idInventario').val(),
-        'fecha' : $('#fecha').val(),
+        'idInventario' : idInve,
+        'fecha' : fecha,
         'local' : $('#local').val(),
         'ubicacion' : $('#ubicacion').val(),
         'usuario' : $('#usuario').val(),
@@ -115,11 +133,20 @@ function agregarCabecera() {
         'dependencia' : $('#dependencia').val(),
         'ambiente' : $('#ambiente').val(),
         'area' : $('#area').val(),
-        'inventariador1' : $('#inventariador1').val(),
-        'inventariador2' : $('#inventariador2').val()
+        'inventariador1' : i1,
+        'inventariador2' : i2
     };
-    var i1 = $('#inventariador1').val();
-    var i2 = $('#inventariador2').val();
+    
+    if(idInve.length == 0)
+    {
+        alert("El campo del número de Inventario es obligatorio!");
+        return;
+    }
+    if(fecha.length == 0)
+    {
+        alert("Debe elegir una fecha!");
+        return;   
+    }
     if(i1.length == 0 || i2.length==0)
     {
         alert("Debe asignar dos inventariadores!");
@@ -241,7 +268,7 @@ function verDetalles(cod){
             if (data.error) {
                 alert(data.mensaje);
             }else{
-                for(var i=0;i<data.longitud;i++)
+                for(var i=0;i<=data.longitud;i++)
                 {
                     $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td></tr>');
                      actualizarEnumeracion();    
