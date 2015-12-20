@@ -4,7 +4,7 @@ function funcPrincipal() {
     $('#btnAgregarDetalle').on('click', agregarFila);
     $('#btnAgregarCabecera').on('click', agregarCabecera);
     $('#btnVerCodBarras').on('click', verCodBarras);
-    
+    $('#verNumeroInventario').on('click', verInventario);
 }
 
 function agregarFila() {
@@ -116,8 +116,20 @@ function agregarCabecera() {
         'ambiente' : $('#ambiente').val(),
         'area' : $('#area').val(),
         'inventariador1' : $('#inventariador1').val(),
-        'inventariador2' : $('#inventariador2').val(),
+        'inventariador2' : $('#inventariador2').val()
     };
+    var i1 = $('#inventariador1').val();
+    var i2 = $('#inventariador2').val();
+    if(i1.length == 0 || i2.length==0)
+    {
+        alert("Debe asignar dos inventariadores!");
+        return;
+    }
+    if(i1 == i2)
+    {
+        alert("Cuidado, está asignando doble al mismo inventariador!");
+        return;
+    }
 
     $.ajax({
         type : 'POST',
@@ -175,6 +187,67 @@ function verCodBarras() {
                 $("input[name=estadoConservacion][value='"+data.estado.substring(0, 1)+"']").prop("checked",true);
             }                
                    
+        } 
+    });
+}
+
+function verInventario(){
+    var codigo = $('#idInventario').val();
+    var datosEnviados = 
+    {
+        'codigoInventario' : codigo    
+    };
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verCodInventario.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error) {
+                alert(data.mensaje);
+            }else{
+                $('#fecha').val(data.fecha);         
+                $('#local').val(data.local);
+                $('#ubicacion').val(data.ubicacion);
+                $('#usuario').val(data.usuario);
+                $('#cargo').val(data.cargo);
+                $('#dependencia').val(data.dependencia);
+                $('#ambiente').val(data.ambiente);
+                $('#area').val(data.area);
+                $('#inventariador1').val(data.inventariador1);
+                $('#inventariador2').val(data.inventariador2);
+                verDetalles(codigo); 
+            }                
+                
+        } 
+    });
+}
+
+function verDetalles(cod){
+    var datosEnviados = 
+    {
+        'codigoInventario' : cod    
+    };
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verDetalles.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error) {
+                alert(data.mensaje);
+            }else{
+                for(var i=0;i<data.longitud;i++)
+                {
+                    $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td></tr>');
+                     actualizarEnumeracion();    
+                }  
+            }                
+                
         } 
     });
 }
