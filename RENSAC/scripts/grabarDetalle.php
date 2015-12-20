@@ -16,7 +16,7 @@
 		}
 		else
 		{
-			mysqli_query($con,"insert into invAlmacenDetalle(idInv,codigoAntiguo,codigoInventario,codigoBarras,denominacion,marca,modelo,serie,color,largo,ancho,alto,estado,etiquetado,situacion) values('".$_POST['idInventario']."','".$_POST['codigoAntiguo']."','".$_POST['codigoInventario']."','".$_POST['codigoBarras']."','".$_POST['denominacion']."','".$_POST['marca']."','".$_POST['modelo']."','".$_POST['serie']."','".$_POST['color']."',".$_POST['largo'].",".$_POST['ancho'].",".$_POST['alto'].", '".$_POST['estado']."', '".$_POST['etiquetado']."', '".$_POST['situacion']."')");
+			mysqli_query($con,"insert into invAlmacenDetalle(idInv,codigoAntiguo,codigoInventario,codigoBarras,denominacion,marca,modelo,serie,color,largo,ancho,alto,estado,etiquetado,situacion) values('".$_POST['idInventario']."','".$_POST['codigoAntiguo']."','".$_POST['codigoInventario']."','".$_POST['codigoBarras']."','".$_POST['denominacion']."','".$_POST['marca']."','".$_POST['modelo']."','".$_POST['serie']."','".$_POST['color']."','".$_POST['largo']."','".$_POST['ancho']."','".$_POST['alto']."', '".$_POST['estado']."', '".$_POST['etiquetado']."', '".$_POST['situacion']."')");
 			$data['mensaje'] = "Agregado correctamente";
 			$data['error'] = false;
 		}

@@ -20,13 +20,8 @@
                         <li><a href="sobrantesGeneral.php">Bienes Sobrantes</a></li>
                         <li><a href="faltantesGeneral.php">Bienes Faltantes</a></li>
                     </ul>
-                </li>               
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventario Almacén<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="verificarAlmacen.php">Verificar Inventarios</a></li>                        
-                        <li><a href="registrarAlmacen.php">Registrar Inventarios</a></li>
-                    </ul>
-                </li>
+                </li>         
+                
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventario Terceros<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="verificarTerceros.php">Verificar Inventarios</a></li>                        

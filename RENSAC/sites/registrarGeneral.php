@@ -20,6 +20,10 @@
     <script type="text/javascript" src="../js/inventario.js"></script>
     <link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/theme.css">
+
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+    <script type="text/javascript" src="../js/alertify.js"></script>
   </head>
 
   <body role="document">
@@ -46,9 +50,9 @@
                           <div class="col-md-4">
                             <label for="idInventario">N° INVENTARIO</label>
                             <div class="input-group">                             
-                              <input type="text"  name="idInventario" id="idInventario" class="form-control" placeholder="N° de Inventario"/>
+                              <input type="text"  name="idInventario" id="idInventario" class="form-control" placeholder="N° de Inventario" required/>
                               <span class="input-group-btn">
-                                <button id="verNumeroInventario" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                                <button id="verNumeroInventario" class="btn btn-default glyphicon glyphicon-search" type="button" title="Buscar número de inventario."></button>
                               </span>
                             </div>
                           </div>
@@ -126,20 +130,27 @@
                    <fieldset class="scheduler-border">
                       <legend class="scheduler-border">Bienes</legend>
                         <div class="row form-group">
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                               <label for="codigoInventario">CÓDIGO INVENTARIO ANTIGUO</label>
                               <input type="text"  name="codigoInventario" id="txtcodigoInventario" class="form-control" placeholder="Cod. Inventario Antiguo"/>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                               <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
-                              <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015" class="form-control" placeholder="Cod. Inventario 2015" required/>
+                              <div class="input-group">
+                                <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015" class="form-control" placeholder="Cod. Inventario 2015" required/>
+                                <span class="input-group-btn">
+                                  <button id="btnVerCodInventario2015" class="btn btn-success glyphicon glyphicon-ok" type="button" title="Verificar la existencia del código actual."></button>
+                                </span>
+                              </div>
+                             
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                              <label for="codigobarras">CÓDIGO DE BARRAS</label>
                              <div class="input-group">                                 
                               <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras" required/>
                               <span class="input-group-btn">
-                                <button id="btnVerCodBarras" class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                                <button id="btnVerCodBarras" class="btn btn-default glyphicon glyphicon-search" type="button" title="Buscar bien por el código de barras."></button>
+                                <button id="btnVerificarCodBarras" class="btn btn-success glyphicon glyphicon-ok" type="button"  title="Verificar la existencia del código de barras."></button>
                               </span>
                             </div>
                           </div>
@@ -175,15 +186,15 @@
                            <div class="row form-group">
                               <div class="col-md-2">
                                 <label for="largo">LARGO</label>
-                                <input type="text"  name="largo" id="txtlargo" class="form-control" placeholder="En metros"/>
+                                <input type="number"  name="largo" id="txtlargo" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-2">
                                 <label for="ancho">ANCHO</label>
-                                <input type="text"  name="ancho" id="txtancho" class="form-control" placeholder="En metros"/>
+                                <input type="number"  name="ancho" id="txtancho" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-2">
                                 <label for="alto">ALTO</label>
-                                <input type="text"  name="alto" id="txtalto" class="form-control" placeholder="En metros"/>
+                                <input type="number"  name="alto" id="txtalto" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-5 col-md-offset-1">
                                 <label for="estado">ESTADO DE CONSERVACIÓN</label>

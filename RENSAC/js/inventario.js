@@ -5,6 +5,8 @@ function funcPrincipal() {
     $('#formCabecera').on('submit', agregarCabecera);
     $('#btnVerCodBarras').on('click', verCodBarras);
     $('#verNumeroInventario').on('click', verInventario);
+    $('#btnVerCodInventario2015').on('click', verInventario2015);
+    $('#btnVerificarCodBarras').on('click', verificarCodBarras);
 }
 
 function agregarFila() {
@@ -13,7 +15,7 @@ function agregarFila() {
     var num = $('#detalleInventario tr:last').find('[data-i]').text();
    
     if (num == 16){
-        alert('Ya no se pueden agregar más bienes a este inventario.');
+        alertify.error('Ya no se pueden agregar más bienes a este inventario.');
         return;
 
     }
@@ -45,12 +47,12 @@ function agregarFila() {
 
     if(cod2.length == 0)
     {
-        alert('Debe asignarse un codigo de inventario actual!');
+        alertify.error('Debe asignarse un codigo de inventario actual!');
         return;
     }
     if(codbar.length == 0)
     {
-        alert('Debe asignarse un codigo de barras al bien!');
+        alertify.error('Debe asignarse un codigo de barras al bien!');
         return;
     }
 
@@ -81,9 +83,9 @@ function agregarFila() {
         encode : true,
         success: function(data){
             if (data.error) {
-                alert(data.mensaje);
+                alertify.error(data.mensaje);
             }else{                
-                alert(data.mensaje);
+                alertify.success(data.mensaje);
 
                     $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td></tr>');
                      actualizarEnumeracion();
@@ -99,9 +101,9 @@ function agregarFila() {
                     $('#txtlargo').val('');
                     $('#txtancho').val('');
                     $('#txtalto').val('');
-                    $("#rbNuevo").attr('checked', true);
+                    $("#rbNuevo").attr('checked', 'checked');
                     $("#chkEtiquetado").attr('checked', false);
-                    $("#chkOperativo").attr('checked', false);
+                    $("#chkOperativo").attr('checked', true);
 
             }             
         } 
@@ -139,22 +141,22 @@ function agregarCabecera() {
     
     if(idInve.length == 0)
     {
-        alert("El campo del número de Inventario es obligatorio!");
+        alertify.error("El campo del número de Inventario es obligatorio!");
         return;
     }
     if(fecha.length == 0)
     {
-        alert("Debe elegir una fecha!");
+        alertify.error("Debe elegir una fecha!");
         return;   
     }
     if(i1.length == 0 || i2.length==0)
     {
-        alert("Debe asignar dos inventariadores!");
+        alertify.error("Debe asignar dos inventariadores!");
         return;
     }
     if(i1 == i2)
     {
-        alert("Cuidado, está asignando doble al mismo inventariador!");
+        alertify.error("Cuidado, está asignando doble al mismo inventariador!");
         return;
     }
 
@@ -166,9 +168,9 @@ function agregarCabecera() {
         encode : true,
         success: function(data){
             if (data.error) {
-                alert(data.mensaje);
+                alertify.error(data.mensaje);
             }else{
-                alert(data.mensaje);
+                alertify.success(data.mensaje);
 
                     $('#verNumeroInventario').attr('disabled', 'disabled');
                     $('#btnAgregarCabecera').attr('disabled', 'disabled');
@@ -191,10 +193,16 @@ function agregarCabecera() {
 }
 
 function verCodBarras() {
+    var codigo = $('#txtcodigobarras').val();
     var datosEnviados = 
     {
         'codigoBarras' : $('#txtcodigobarras').val()       
     };
+
+    if(codigo.length == 0){
+        alertify.log('Debe ingresar código.');
+        return;
+    }
 
     $.ajax({
         type : 'POST',
@@ -204,7 +212,7 @@ function verCodBarras() {
         encode : true,
         success: function(data){
             if (data.error) {
-                alert(data.mensaje);
+                alertify.error(data.mensaje);
             }else{               
                 $('#txtcodigoInventario').val(data.codigoInterno);
                 $('#txtdenominacion').val(data.denominacion);
@@ -225,6 +233,11 @@ function verInventario(){
         'codigoInventario' : codigo    
     };
 
+     if(codigo.length == 0){
+        alertify.log('Debe ingresar código.');
+        return;
+    }
+
     $.ajax({
         type : 'POST',
         url : '../scripts/verCodInventario.php',
@@ -233,7 +246,7 @@ function verInventario(){
         encode : true,
         success: function(data){
             if (data.error) {
-                alert(data.mensaje);
+                alertify.success(data.mensaje);
             }else{
                 $('#fecha').val(data.fecha);         
                 $('#local').val(data.local);
@@ -266,8 +279,10 @@ function verDetalles(cod){
         encode : true,
         success: function(data){
             if (data.error) {
-                alert(data.mensaje);
+                alertify.error(data.mensaje);
             }else{
+                //LIMPIAR TABLA
+                $('#detalleInventario tbody').empty();
                 for(var i=0;i<=data.longitud;i++)
                 {
                     $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td></tr>');
@@ -276,5 +291,64 @@ function verDetalles(cod){
             }                
                 
         } 
+    });
+}
+
+
+function verInventario2015(){
+    var codigo = $('#txtcodigoInventario2015').val();
+    var datosEnviados = 
+    {
+        'codigoInventario2015' : codigo    
+    };
+    if(codigo.length == 0){
+        alertify.log('Debe ingresar código.');
+        return;
+    }
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verCodInventario2015.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error){                
+               alertify.error(data.mensaje);              
+            }
+            else
+            {
+                alertify.success(data.mensaje);                 
+            } 
+        }
+    });
+}
+
+function verificarCodBarras(){
+    var codigo = $('#txtcodigobarras').val();
+    var datosEnviados = 
+    {
+        'codigoBarras' : codigo    
+    };
+    if(codigo.length == 0){
+        alertify.log('Debe ingresar código.');
+        return;
+    }
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verificarCodBarras.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error){                
+               alertify.error(data.mensaje);              
+            }
+            else
+            {
+                alertify.success(data.mensaje);                 
+            } 
+        }
     });
 }
