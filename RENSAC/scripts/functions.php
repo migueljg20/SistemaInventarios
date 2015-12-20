@@ -28,5 +28,22 @@ function getInventariadores()
 	return $resultSet->fetch_all();
 }
 
+function getListaInventarios()
+{
+	abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT IC.idInv, IC.fecha, IC.local, IC.ubicacion, IC.usuario, I1.nombre, I2.nombre FROM invAlmacenCabecera IC JOIN inventariadores I1 on IC.inventariador1 = I1.dni JOIN inventariadores I2 ON IC.inventariador2 = I2.dni");
+	return $resultSet->fetch_all();
+}
+
+function getListaDetalles($id){
+	abrirConexion();	
+	global $conexion;
+	$sql = "SELECT * FROM invAlmacenDetalle WHERE idInv = ".$id;	
+	$resultSet = mysqli_query($conexion, $sql);
+	return $resultSet->fetch_all();
+}
+
+
 
 ?>

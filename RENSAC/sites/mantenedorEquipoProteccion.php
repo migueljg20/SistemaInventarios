@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../css/theme.css">
 
     <!--<script src="../js/jquery.js"></script>-->
-    <script src="../js/mijava.js"></script>
+   <script src="../js/mijava.js"></script>
 
 
   </head>
