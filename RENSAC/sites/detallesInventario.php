@@ -103,7 +103,7 @@
       
         <div class="row form-group">
             <div class="col-md-offset-2 col-md-8">
-                <a href="#" class="btn btn-md btn-warning btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
+                <a href="reporteDetalles.php?id=<?php echo $_GET['id']; ?>" class="btn btn-md btn-warning btn-block" target="_blank"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
             </div>
         </div> 
 
