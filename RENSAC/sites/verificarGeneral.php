@@ -80,7 +80,7 @@
                                           <td><?= $listado[4] ?></td>
                                           <td><?= $listado[5] ?></td>
                                           <td><?= $listado[6] ?></td>
-                                          <td value="<?= $listado[0] ?>"><a href="detallesInventario.php?id='<?= $listado[0] ?>'" class="btn btn-success btn-xs col-md-offset-2">Ver Detalles</a></td>
+                                          <td value="<?= $listado[0] ?>"><a href="detallesInventario.php?id=<?= $listado[0] ?>" class="btn btn-success btn-xs col-md-offset-2">Ver Detalles</a></td>
                                     </tr>
                                 <?php $i++; endforeach ?> 
                             </tbody>

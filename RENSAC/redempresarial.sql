@@ -45,7 +45,7 @@ create table invAlmacenCabecera
 
 create table invAlmacenDetalle
 (
-	idInv varchar(10),
+	idInv varchar(10) NOT NULL,
 	codigoAntiguo varchar(30),
 	codigoInventario varchar(30),
 	codigoBarras varchar(10),
@@ -60,6 +60,7 @@ create table invAlmacenDetalle
 	estado char(1),
 	etiquetado char(2),
 	situacion char(1),
+	PRIMARY KEY(idInv, codigoInventario),
 	FOREIGN KEY (idInv) REFERENCES invAlmacenCabecera(idInv)
 );
 
