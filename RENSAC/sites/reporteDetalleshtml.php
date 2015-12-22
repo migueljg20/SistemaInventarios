@@ -47,12 +47,12 @@
                                   <th rowspan="2" style="vertical-align: middle; height: 25px;">N°</th>
                                   <th rowspan="2" style="vertical-align: middle;">Cod.Inv.Ant.</th>
                                   <th rowspan="2" style="vertical-align: middle; height: 25px; width=8%; " align="center">Cod.Inv.2015</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px;">Cod.Bar.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px;">Codigo Barras</th>
                                   <th colspan="5" style="vertical-align: middle; height: 25px;" align="center">Descripción del Bien</th>
                                   <th colspan="3" style="vertical-align: middle; height: 25px; width=10%;" align="center">Dimensiones</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Est.</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Etiq.</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Sit.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Estado</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Etiquetado</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Situación</th>
                               </tr>
                               <tr>
                                   <th style="vertical-align: middle; height: 25px;">Denominación</th>
@@ -60,9 +60,9 @@
                                   <th style="vertical-align: middle; height: 25px;" align="center">Modelo</th>
                                   <th style="vertical-align: middle; height: 25px;" align="center">Serie</th>
                                   <th style="vertical-align: middle; height: 25px;" align="center">Color</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">La.</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">An.</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Al.</th>
+                                  <th style="vertical-align: middle; height: 25px;" align="center">Largo</th>
+                                  <th style="vertical-align: middle; height: 25px;" align="center">Ancho</th>
+                                  <th style="vertical-align: middle; height: 25px;" align="center">Alto</th>
                               </tr>
                           </thead>
                     <tbody>
