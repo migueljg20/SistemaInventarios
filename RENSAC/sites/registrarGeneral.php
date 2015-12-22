@@ -83,7 +83,7 @@
                           </div>
                           <div class="col-md-4">
                             <label for="cargo">CARGO</label>
-                             <input type="text"  name="cargo" id="cargo" class="form-control" disabled=”disabled”/>
+                             <input type="text"  name="cargo" id="cargo" class="form-control" placeholder="Ingrese el cargo del usuario"/>
                           </div>
                         </div>
                         <div class="row form-group">
@@ -163,7 +163,7 @@
                            </div>
                            <div class="col-md-3">
                               <label for="color">COLOR</label>
-                              <input type="text"  name="color" id="txtcolor" class="form-control" placeholder="Ingrese un color" required/>
+                              <input type="text"  name="color" id="txtcolor" class="form-control" placeholder="Ingrese un color"/>
                            </div>
                          </div>
                           <div class="row form-group">
@@ -186,15 +186,15 @@
                            <div class="row form-group">
                               <div class="col-md-2">
                                 <label for="largo">LARGO</label>
-                                <input type="number"  name="largo" id="txtlargo" class="form-control" placeholder="En metros"/>
+                                <input type="double"  name="largo" id="txtlargo" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-2">
                                 <label for="ancho">ANCHO</label>
-                                <input type="number"  name="ancho" id="txtancho" class="form-control" placeholder="En metros"/>
+                                <input type="double"  name="ancho" id="txtancho" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-2">
                                 <label for="alto">ALTO</label>
-                                <input type="number"  name="alto" id="txtalto" class="form-control" placeholder="En metros"/>
+                                <input type="double"  name="alto" id="txtalto" class="form-control" placeholder="En metros"/>
                             </div>
                             <div class="col-md-5 col-md-offset-1">
                                 <label for="estado">ESTADO DE CONSERVACIÓN</label>

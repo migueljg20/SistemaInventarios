@@ -39,7 +39,7 @@ function getListaInventarios()
 function getListaDetalles($id){
 	abrirConexion();	
 	global $conexion;
-	$sql = "SELECT * FROM invAlmacenDetalle WHERE idInv = ".$id;	
+	$sql = "SELECT * FROM invAlmacenDetalle WHERE idInv = '".$id."'";	
 	$resultSet = mysqli_query($conexion, $sql);
 	return $resultSet->fetch_all();
 }

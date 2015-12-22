@@ -44,25 +44,25 @@
        <table BORDER=0.5 CELLSPACING=0 style="width: 100%; font-size: 12px; " align="left">
                     <thead>
                             <tr>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px;">N°</th>
-                                  <th rowspan="2" style="vertical-align: middle;">Cod.Inv.Ant.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=2%;" align="center">N°</th>
+                                  <th rowspan="2" style="vertical-align: middle; width=9%;" align="center">Cod.Inv.Ant.</th>
                                   <th rowspan="2" style="vertical-align: middle; height: 25px; width=8%; " align="center">Cod.Inv.2015</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px;">Cod.Bar.</th>
-                                  <th colspan="5" style="vertical-align: middle; height: 25px;" align="center">Descripción del Bien</th>
-                                  <th colspan="3" style="vertical-align: middle; height: 25px; width=10%;" align="center">Dimensiones</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Est.</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Etiq.</th>
-                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=3%;" align="center">Sit.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=7%;" align="center">Cod.Bar.</th>
+                                  <th colspan="5" style="vertical-align: middle; height: 25px; width=48%;" align="center">Descripción del Bien</th>
+                                  <th colspan="3" style="vertical-align: middle; height: 25px; width=12%;" align="center">Dimensiones</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=4%;" align="center">Est.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=4%;" align="center">Etiq.</th>
+                                  <th rowspan="2" style="vertical-align: middle; height: 25px; width=4%;" align="center">Sit.</th>
                               </tr>
                               <tr>
-                                  <th style="vertical-align: middle; height: 25px;">Denominación</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Marca</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Modelo</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Serie</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Color</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">La.</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">An.</th>
-                                  <th style="vertical-align: middle; height: 25px;" align="center">Al.</th>
+                                  <th style="vertical-align: middle; height: 25px; width=22%;">Denominación</th>
+                                  <th style="vertical-align: middle; height: 25px; width=6%;" align="center">Marca</th>
+                                  <th style="vertical-align: middle; height: 25px; width=8%;" align="center">Modelo</th>
+                                  <th style="vertical-align: middle; height: 25px; width=6%;" align="center">Serie</th>
+                                  <th style="vertical-align: middle; height: 25px; width=6%" align="center">Color</th>
+                                  <th style="vertical-align: middle; height: 25px; width=4%" align="center">La.</th>
+                                  <th style="vertical-align: middle; height: 25px; width=4%" align="center">An.</th>
+                                  <th style="vertical-align: middle; height: 25px; width=4%" align="center">Al.</th>
                               </tr>
                           </thead>
                     <tbody>
@@ -71,12 +71,12 @@
                         $i = 1; 
                         foreach ($listados as $listado): ?>
                         <tr >
-                            <td><?= $i ?></td>
-                            <td><?= $listado[1] ?></td>
+                            <td align="center"><?= $i ?></td>
+                            <td align="center"><?= $listado[1] ?></td>
                             <td align="center"><?= $listado[2] ?></td>
-                            <td><?= $listado[3] ?></td>
+                            <td align="center"><?= $listado[3] ?></td>
                             <td><?= $listado[4] ?></td>
-                            <td><?= $listado[5] ?></td>
+                            <td align="center"><?= $listado[5] ?></td>
                             <td><?= $listado[6] ?></td>
                             <td><?= $listado[7] ?></td>
                             <td><?= $listado[8] ?></td>
