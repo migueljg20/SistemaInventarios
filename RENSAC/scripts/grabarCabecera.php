@@ -8,7 +8,7 @@
 	}
 	else
 	{
-		mysqli_query($con,"insert into invAlmacenCabecera(idInv,fecha,local,ubicacion,usuario,cargo,dependencia,ambiente,area,inventariador1,inventariador2) values('".$_POST['idInventario']."','".$_POST['fecha']."','".$_POST['local']."','".$_POST['ubicacion']."','".$_POST['usuario']."','".$_POST['cargo']."','".$_POST['dependencia']."','".$_POST['ambiente']."','".$_POST['area']."','".$_POST['inventariador1']."','".$_POST['inventariador2']."')");
+		mysqli_query($con,"insert into invAlmacenCabecera(idInv,fecha,local,ubicacion,usuario,cargo,dependencia,ambiente,area,inventariador1,inventariador2) values('".$_POST['idInventario']."','".$_POST['fecha']."','".$_POST['local']."','".htmlentities($_POST['ubicacion'])."','".$_POST['usuario']."','".$_POST['cargo']."','".$_POST['dependencia']."','".$_POST['ambiente']."','".htmlentities($_POST['area'])."','".$_POST['inventariador1']."','".$_POST['inventariador2']."')");
 		$data['mensaje'] = "Agregado correctamente";
 		$data['error'] = false;
 	}	

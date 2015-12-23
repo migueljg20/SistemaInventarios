@@ -4,8 +4,6 @@ use redempresarial;
 
 create table basedatos
 (
-	item int,
-	subcuenta int,
 	codigoActivo varchar(10),
 	codigoInterno varchar(15),
 	denominacion text,

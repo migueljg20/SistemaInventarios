@@ -2,7 +2,7 @@
 	$con=mysqli_connect('localhost','root','','redempresarial');
 	$res1 = mysqli_query($con, "SELECT * FROM invAlmacenDetalle WHERE codigoBarras='".$_POST['codigoBarras']."'");
 	$res2 = mysqli_query($con, "SELECT * FROM invAlmacenDetalle WHERE codigoInventario='".$_POST['codigoInventario']."'");
-	if(mysqli_num_rows($res1)>0)
+	if(strlen($_POST['codigoBarras'])>0 and  mysqli_num_rows($res1)>0)
 	{
 		$data['mensaje'] = "Ya está inventariado este bien!";	
 		$data['error'] = true;

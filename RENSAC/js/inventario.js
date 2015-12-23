@@ -50,11 +50,11 @@ function agregarFila() {
         alertify.error('Debe asignarse un codigo de inventario actual!');
         return;
     }
-    if(codbar.length == 0)
-    {
-        alertify.error('Debe asignarse un codigo de barras al bien!');
-        return;
-    }
+    //if(codbar.length == 0)
+    //{
+    //    alertify.error('Debe asignarse un codigo de barras al bien!');
+    //    return;
+    //}
 
     var datosEnviados = 
     {

@@ -147,7 +147,7 @@
                           <div class="col-md-4">
                              <label for="codigobarras">CÓDIGO DE BARRAS</label>
                              <div class="input-group">                                 
-                              <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras" required/>
+                              <input type="text"  name="codigobarras" id="txtcodigobarras" class="form-control" placeholder="Cod. Barras"/>
                               <span class="input-group-btn">
                                 <button id="btnVerCodBarras" class="btn btn-default glyphicon glyphicon-search" type="button" title="Buscar bien por el código de barras."></button>
                                 <button id="btnVerificarCodBarras" class="btn btn-success glyphicon glyphicon-ok" type="button"  title="Verificar la existencia del código de barras."></button>
