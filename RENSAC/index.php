@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+    <script type="text/javascript" src="../js/alertify.js"></script>
   </head>
 
   <body role="document" style="background:#7A7A7A;">
