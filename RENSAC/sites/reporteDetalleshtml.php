@@ -69,7 +69,7 @@
 
                      <?php
                         $i = 1; 
-                        foreach ($listados as $listado): ?>
+                        foreach ((array)$listados as $listado): ?>
                         <tr >
                             <td align="center"><?= $i ?></td>
                             <td align="center"><?= $listado[1] ?></td>

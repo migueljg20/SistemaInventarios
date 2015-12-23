@@ -76,7 +76,7 @@
 
                      <?php
                         $i = 1; 
-                        foreach ($listados as $listado): ?>
+                        foreach ((array)$listados as $listado): ?>
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $listado[1] ?></td>

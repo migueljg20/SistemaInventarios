@@ -1,9 +1,18 @@
-drop database if exists redempresarial;
-create database redempresarial;
-use redempresarial;
+
+
+CREATE TABLE usuario (
+  idusuario int(11) NOT NULL AUTO_INCREMENT,
+  usuario varchar(45) not null,
+  nombres varchar(50) not null,
+  apellidos varchar(50) not null,
+  clave varchar(45) DEFAULT NULL,
+  primary key(idusuario)
+);
+
+insert into usuario values(NULL,'admin','erick','alfaro','redemp#2015');
 
 create table basedatos
-(
+(	
 	codigoActivo varchar(10),
 	codigoInterno varchar(15),
 	denominacion text,
@@ -16,6 +25,8 @@ create table basedatos
 	ubicacion text,
 	local text
 );
+
+
 create table inventariadores
 (
 	dni varchar(8) NOT NULL PRIMARY KEY,
@@ -65,4 +76,7 @@ create table invAlmacenDetalle
 
 INSERT INTO inventariadores (dni, nombre) VALUES ('54851516', 'Ulloa Caycho Junior');
 INSERT INTO inventariadores (dni, nombre) VALUES ('68518475', 'Acevedo Arroyo Francesca');
-INSERT INTO inventariadores (dni, nombre) VALUES ('65742154', 'Tongo Gomez Franklin');
+INSERT INTO inventariadores (dni, nombre) VALUES ('65742154', 'Tongo Gómez Franklin');
+INSERT INTO inventariadores (dni, nombre) VALUES ('65205405', 'Velásquez Nolasco Kevin');
+INSERT INTO inventariadores (dni, nombre) VALUES ('65415088', 'Gonzales Rios Julio');
+INSERT INTO inventariadores (dni, nombre) VALUES ('41547885', 'Salazar Plasencia Javier');
