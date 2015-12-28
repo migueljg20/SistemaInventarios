@@ -24,8 +24,8 @@
                 
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventario Terceros<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="verificarTerceros.php">Verificar Inventarios</a></li>                        
                         <li><a href="registrarTerceros.php">Registrar Inventarios</a></li>
+                        <li><a href="verificarTerceros.php">Verificar Inventarios</a></li>               
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventario Vehículos<span class="caret"></span></a>

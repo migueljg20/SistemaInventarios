@@ -56,6 +56,26 @@ function getListaDetalles($id){
 	return $results_array;
 }
 
+function getListaTerceros()
+{
+	abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT IC.idInv, IC.fecha, IC.dependencia, IC.ubicacion, IC.usuario, I1.nombre FROM invTercerosCabecera IC JOIN inventariadores I1 on IC.inventariador = I1.dni");
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+}
 
+function getListaDetallesTerceros($id){
+	abrirConexion();	
+	global $conexion;
+	$sql = "SELECT * FROM invTercerosDetalle WHERE idInv = '".$id."'";	
+	$resultSet = mysqli_query($conexion, $sql);
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+}
 
 ?>

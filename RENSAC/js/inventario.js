@@ -1,5 +1,6 @@
 $(document).on('ready', funcPrincipal);
 
+
 function funcPrincipal() {
     $('#formDetalle').on('submit', agregarFila);
     $('#formCabecera').on('submit', agregarCabecera);
