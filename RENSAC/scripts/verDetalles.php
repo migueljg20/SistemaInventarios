@@ -16,7 +16,8 @@
 	$i = 0;
 
 	$con=mysqli_connect('localhost','root','','redempresarial');
-	$res=mysqli_query($con,"select * from invAlmacenDetalle where idInv = '".$_POST['codigoInventario']."'");
+	$sql="select * from invAlmacenDetalle where idInv = '".$_POST['codigoInventario']."'";
+	$res=mysqli_query($con,$sql);
  
   
     if(mysqli_num_rows($res)>0)
@@ -62,7 +63,6 @@
 		$datos['mensaje'] = "El inventario no tiene detalles de bienes aún!";	
 		$datos['error'] = true;
 	}
-	
    
   	echo json_encode($datos);
 ?>

@@ -56,6 +56,36 @@ function getListaDetalles($id){
 	return $results_array;
 }
 
+function getCabecera($id){
+	abrirConexion();	
+	global $conexion;
+	$sql = "SELECT IC.idInv, IC.fecha, IC.local, IC.ubicacion, IC.usuario, IC.dependencia, IC.ambiente, IC.area, I1.nombre, I2.nombre FROM invAlmacenCabecera IC JOIN inventariadores I1 on IC.inventariador1 = I1.dni JOIN inventariadores I2 ON IC.inventariador2 = I2.dni WHERE IC.idInv = '".$id."'";	
+	$resultSet = mysqli_query($conexion, $sql);
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+}
 
+function getTodoInv(){
+	abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT idInv FROM invAlmacenCabecera");
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+}
+
+function verCantidadDigitados(){
+        abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT count(*) FROM invAlmacenDetalle");
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+
+}
 
 ?>

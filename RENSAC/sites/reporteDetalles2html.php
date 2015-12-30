@@ -1,7 +1,6 @@
 <?php
     include('../scripts/functions.php');
-    $listados = getListaDetalles($_GET['id']);   
-    $encabezado = getCabecera($_GET['id']);
+    $cabeceras = getTodoInv();
 ?>
 <style type="text/css">
 <!--
@@ -10,7 +9,7 @@
     td{height: 10px;}  
 -->
 </style>
-<page backtop="28mm" backbottom="28mm" backleft="10mm" backright="12mm" pagegroup="new" style="font-size: 10pt">
+<page backtop="28mm" backbottom="35mm" backleft="10mm" backright="12mm" pagegroup="new" style="font-size: 10pt">
     <page_header>
         <table class="page_header">
              <tr>
@@ -53,6 +52,12 @@
         </table>
     </page_footer>    
     
+    <?php 
+      foreach ((array)$cabeceras as $cabeza):
+        $id = $cabeza[0];
+        $listados = getListaDetalles($id);   
+        $encabezado = getCabecera($id);
+     ?>
      <table style="width: 100%; font-size: 9pt" class="cabecera">
        <tr>
          <td style="width:18%; text-align: left"><b>DEPENDENCIA </b></td>
@@ -165,6 +170,8 @@
                 <br>
                 <br>
                 <br>
-   
+                <br>
+                <br>
+   <?php endforeach ?>
 
 </page>

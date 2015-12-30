@@ -14,7 +14,7 @@
 			$estado = $bien[5];		
 		}
 		$datos['codigoInterno'] = $codigoInterno;
-   		$datos['denominacion'] = $denominacion;
+   		$datos['denominacion'] = utf8_encode($denominacion);
    		$datos['marca']= $marca;
    		$datos['modelo'] = $modelo;
    		$datos['serie'] = $serie;   	

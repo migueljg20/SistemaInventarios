@@ -2,6 +2,7 @@
     include('../scripts/functions.php');
 
     $listados = getListaInventarios();
+    $cantidad = verCantidadDigitados();
    
 ?>
 <!DOCTYPE html>
@@ -49,6 +50,7 @@
        <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-12 table-responsive">
+<p><b> Cantidad de Bienes Digitados:</b> <?= $cantidad[0][0] ?> </p>
                     <div class="listaDatos">
                       <table id="tablaDatos" class="display" cellspacing="0" width="100%">
                             <thead>
@@ -94,7 +96,7 @@
 
       <div class="row form-group">
         <div class="col-md-offset-2 col-md-8">
-            <a href="#" class="btn btn-md btn-warning btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
+            <a href="reporteDetalles2.php" class="btn btn-md btn-warning btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" target="_blank"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
         </div>
     </div>
 
