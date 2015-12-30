@@ -10,6 +10,11 @@ CREATE TABLE usuario (
 );
 
 insert into usuario values(NULL,'admin','erick','alfaro','redemp#2015');
+insert into usuario values(NULL,'admin2','alicia','','redemp#2015');
+insert into usuario values(NULL,'digit1','johan','julisa','redemp#2015');
+insert into usuario values(NULL,'digit2','katherin','atoche','redemp#2015');
+
+
 
 create table basedatos
 (	
@@ -71,6 +76,38 @@ create table invAlmacenDetalle
 	situacion char(1),
 	PRIMARY KEY(idInv, codigoInventario),
 	FOREIGN KEY (idInv) REFERENCES invAlmacenCabecera(idInv)
+);
+
+create table invTercerosCabecera
+(
+	idInv varchar(10) NOT NULL PRIMARY KEY,
+	fecha date,
+	hora varchar(20),
+	dependencia text,
+	unidadOrganica	text,
+	ubicacion text,
+	usuario varchar(100),
+	inventariador varchar(8),
+	FOREIGN KEY (inventariador) REFERENCES inventariadores(dni)
+);
+
+create table invTercerosDetalle
+(
+	idInv varchar(10) NOT NULL,
+	codigoInventario varchar(30),
+	denominacion text,
+	marca varchar(50),
+	modelo varchar(50),
+	serie varchar(50),
+	color varchar(25),
+	largo varchar(10),
+	ancho varchar(10),
+	alto varchar(10),
+	estado char(1),
+	propietario text,
+	observacion text,
+	PRIMARY KEY(idInv, codigoInventario),
+	FOREIGN KEY (idInv) REFERENCES invTercerosCabecera(idInv)
 );
 
 

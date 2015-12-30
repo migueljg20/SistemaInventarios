@@ -61,6 +61,12 @@ function getCabecera($id){
 	global $conexion;
 	$sql = "SELECT IC.idInv, IC.fecha, IC.local, IC.ubicacion, IC.usuario, IC.dependencia, IC.ambiente, IC.area, I1.nombre, I2.nombre FROM invAlmacenCabecera IC JOIN inventariadores I1 on IC.inventariador1 = I1.dni JOIN inventariadores I2 ON IC.inventariador2 = I2.dni WHERE IC.idInv = '".$id."'";	
 	$resultSet = mysqli_query($conexion, $sql);
+}
+function getListaTerceros()
+{
+	abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT IC.idInv, IC.fecha, IC.dependencia, IC.ubicacion, IC.usuario, I1.nombre FROM invTercerosCabecera IC JOIN inventariadores I1 on IC.inventariador = I1.dni");
 	while ($row = $resultSet->fetch_array()) {
 	  $results_array[] = $row;
 	}
@@ -70,7 +76,14 @@ function getCabecera($id){
 function getTodoInv(){
 	abrirConexion();	
 	global $conexion;
-	$resultSet = mysqli_query($conexion, "SELECT idInv FROM invAlmacenCabecera");
+	$resultSet = mysqli_query($conexion, "SELECT idInv FROM invAlmacenCabecera order by usuario,idInv LIMIT 80,10");
+}
+
+function getListaDetallesTerceros($id){
+	abrirConexion();	
+	global $conexion;
+	$sql = "SELECT * FROM invTercerosDetalle WHERE idInv = '".$id."'";	
+	$resultSet = mysqli_query($conexion, $sql);
 	while ($row = $resultSet->fetch_array()) {
 	  $results_array[] = $row;
 	}
