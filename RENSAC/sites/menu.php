@@ -1,3 +1,4 @@
+<?php @session_start(); ?>
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -17,8 +18,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="registrarGeneral.php">Registrar Inventarios</a></li>
                         <li><a href="verificarGeneral.php">Verificar Inventarios</a></li>                        
-                        <li><a href="sobrantesGeneral.php">Bienes Sobrantes</a></li>
-                        <li><a href="faltantesGeneral.php">Bienes Faltantes</a></li>
+                        <li><a href="reporteSinCodigo.php">Bienes Sin Código</a></li>                        
                     </ul>
                 </li>         
                 
@@ -40,7 +40,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php
-                session_start();
+               
                 if (isset($_SESSION['usuario']))
                 {
                     echo '<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> </span>'.'  '.$_SESSION['usuario'].'<span class="caret"></span></a>

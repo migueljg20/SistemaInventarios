@@ -91,7 +91,7 @@ function getListaDetallesTerceros($id){
 }
 
 function verCantidadDigitados(){
-        abrirConexion();	
+    abrirConexion();	
 	global $conexion;
 	$resultSet = mysqli_query($conexion, "SELECT count(*) FROM invAlmacenDetalle");
 	while ($row = $resultSet->fetch_array()) {
@@ -100,5 +100,18 @@ function verCantidadDigitados(){
 	return $results_array;
 
 }
+
+function bienesSinCodigoBarras(){
+    abrirConexion();	
+	global $conexion;
+	$resultSet = mysqli_query($conexion, "SELECT * FROM invAlmacenDetalle where LENGTH(codigoBarras) = 0");
+	while ($row = $resultSet->fetch_array()) {
+	  $results_array[] = $row;
+	}
+	return $results_array;
+
+}
+
+
 
 ?>

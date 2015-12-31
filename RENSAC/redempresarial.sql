@@ -110,6 +110,47 @@ create table invTercerosDetalle
 	FOREIGN KEY (idInv) REFERENCES invTercerosCabecera(idInv)
 );
 
+create table basedatos2008
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
+
+create table basedatos2009
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
+
+create table basedatos2010
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
+
+create table basedatos2011
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
+
+create table basedatos2012
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
+
+create table basedatos2013
+(	
+	codigoActivo varchar(10),
+	codigoInventario  varchar(15),
+	denominacion text	
+);
 
 INSERT INTO inventariadores (dni, nombre) VALUES ('54851516', 'Ulloa Caycho Junior');
 INSERT INTO inventariadores (dni, nombre) VALUES ('68518475', 'Acevedo Arroyo Francesca');
