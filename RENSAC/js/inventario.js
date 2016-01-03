@@ -8,6 +8,7 @@ function funcPrincipal() {
     $('#btnVerCodInventario2015').on('click', verInventario2015);
     $('#btnVerificarCodBarras').on('click', verificarCodBarras);
     $('#btnVerAnterior').on('click', verificarCodAnterior);
+    $('#detalleInventario').editable();
 }
 
 function agregarFila() {
