@@ -101,7 +101,7 @@ function getTodoInv(){
 }
 
 function verCantidadDigitados(){
-        abrirConexion();	
+    abrirConexion();	
 	global $conexion;
 	$resultSet = mysqli_query($conexion, "SELECT count(*) FROM invAlmacenDetalle");
 	while ($row = $resultSet->fetch_array()) {

@@ -122,7 +122,7 @@
                             <td align="center"><?= $listado[10] ?></td>
                             <td align="center"><?= $listado[11] ?></td>
                             <td align="center"><?= $listado[12] ?></td>
-                            <td align="center"></td>
+                            <td align="center"><?= $listado[15] ?></td>
                         </tr>
                     <?php $i++; endforeach ?> 
                           <?php 
@@ -156,8 +156,8 @@
                   <li>EL USUARIO DECLARA HABER MOSTRADO TODOS LOS BIENES PATRIMONIALES QUE SE ENCUENTRAN BAJO SU RESPONSABILIDAD 
                   Y NO CONTAR CON MAS BIENES PATRIMONIALES MATERIA DE INVENTARIO.</li>
                   <li>EL USUARIO ES EL RESPONSABLE DEL BUEN USO DE LOS BIENES PATRIMONIALES REGISTRADOS EN LA PRESENTE FICHA Y 
-                  EN CASO PÉRDIDA O EXTRAVÍO, SERÁN REPESTOS O REEMBOLSADOS POR ÉL, DE SER EL RESULTADO DE LAS INDAGACIONES REALIZADAS 
-                  POR LA ENTIDAD.<br>
+                  EN CASO PÉRDIDA O EXTRAVÍO, SERÁN REPUESTOS O REEMBOLSADOS POR ÉL,
+                  <br>DE SER EL RESULTADO DE LAS INDAGACIONES REALIZADAS POR LA ENTIDAD.<br>
                   CUALQUIER MOVIMIENTO DE BIENES DENTRO O FUERA DE LAS INSTALACIONES DE SEDALIB S.A. DEBERÁ SER COMUNICADO AL RESPONSABLE 
                   DE CONTROL PATRIMONIAL BAJO RESPONSABILIDAD.</li>
                 </ul>

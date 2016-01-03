@@ -94,7 +94,6 @@ function agregarFila() {
                 alertify.error(data.mensaje);
             }else{                
                 alertify.success(data.mensaje);
-
                     $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td><td>'+obser+'</td><td></td></tr>');
                      actualizarEnumeracion();
                   

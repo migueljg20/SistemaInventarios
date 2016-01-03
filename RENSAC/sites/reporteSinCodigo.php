@@ -1,9 +1,7 @@
 <?php
     include('../scripts/functions.php');
-   
-   
 
-    $listados = getListaDetalles($_GET['id']);
+    $listados = bienesSinCodigoBarras();   
    
 ?>
 <!DOCTYPE html>
@@ -21,7 +19,7 @@
     <script type="text/javascript" src="../js/alertify.js"></script>
 
     <script type="text/javascript" src="../js/verificar.js"></script>
-   
+    <link rel="stylesheet" href="../css/jeiner.css">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,23 +33,28 @@
     <!--<script src="../js/jquery.js"></script>-->
 </head>
 
-    <body role="document">
+  <body role="document">
 
     <?php require 'menu.php'; ?>
 
     <div class="container theme-showcase" role="main">
-        <div class="row jumbotron color-fondo">
-            <div class="col-md-12">                   
-                <h4 class="text-center"><strong>INVENTARIO FÍSICO DE BIENES PATRIMONIALES AL 31 DE DICIEMBRE DEL 2015</strong></h4>
-            </div>    
-         </div> 
+      <div class="row jumbotron color-fondo">
 
-        <div class="row">
-            <div class="col-md-12 table-responsive">
-                <table id="detalleInventario" class="table table-striped table-bordered table-hover">
-                    <thead>
-                            <tr>
+            <div class="col-md-12">                   
+                <h4 class="text-center"><strong>LISTADO DE INVENTARIOS REGISTRADOS AL 31 DE DICIEMBRE</strong></h4>
+            </div>            
+       </div>
+
+
+       <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-12 table-responsive">
+                    <div class="listaDatos">
+                      <table id="tablaDatos" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">N°</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">N° Inventario</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.Ant.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Inv.2015</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Cod.Barras</th>
@@ -60,7 +63,6 @@
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
-                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Observación</th>
                               </tr>
                               <tr>
                                   <th class="text-center" style="vertical-align: middle;">Denominación</th>
@@ -72,45 +74,51 @@
                                   <th class="text-center" style="vertical-align: middle;">Ancho</th>
                                   <th class="text-center" style="vertical-align: middle;">Alto</th>
                               </tr>
-                          </thead>
-                    <tbody>
+                            </thead>          
+                            
+                            <tbody>
+                              <!-- Aqui irán los elementos de la tabla -->
+                                
+                                <?php
+                                $i = 1; 
+                                foreach ((array)$listados as $listado): ?>
+                                    <tr>
+                                        <td><?= $i ?></td>
+                                        <td><?= $listado[0] ?></td>
+                                        <td><?= $listado[1] ?></td>
+                                        <td><?= $listado[2] ?></td>
+                                        <td><?= $listado[3] ?></td>
+                                        <td><?= $listado[4] ?></td>
+                                        <td><?= $listado[5] ?></td>
+                                        <td><?= $listado[6] ?></td>
+                                        <td><?= $listado[7] ?></td>
+                                        <td><?= $listado[8] ?></td>
+                                        <td><?= $listado[9] ?></td>
+                                        <td><?= $listado[10] ?></td>
+                                        <td><?= $listado[11] ?></td>
+                                        <td><?= $listado[12] ?></td>
+                                        <td><?= $listado[13] ?></td>
+                                        <td><?= $listado[14] ?></td>                                                                   
+                                    </tr>
+                                <?php $i++; endforeach ?> 
+                            </tbody>
+                        </table>
+                    </div> <!-- listadatos -->
 
-                     <?php
-                        $i = 1; 
-                        foreach ((array)$listados as $listado): ?>
-                        <tr>
-                            <td><?= $i ?></td>
-                            <td><?= $listado[1] ?></td>
-                            <td><?= $listado[2] ?></td>
-                            <td><?= $listado[3] ?></td>
-                            <td><?= $listado[4] ?></td>
-                            <td><?= $listado[5] ?></td>
-                            <td><?= $listado[6] ?></td>
-                            <td><?= $listado[7] ?></td>
-                            <td><?= $listado[8] ?></td>
-                            <td><?= $listado[9] ?></td>
-                            <td><?= $listado[10] ?></td>
-                            <td><?= $listado[11] ?></td>
-                            <td><?= $listado[12] ?></td>
-                            <td><?= $listado[13] ?></td>
-                            <td><?= $listado[14] ?></td> 
-                            <td><?= $listado[15] ?></td>                                                                   
-                        </tr>
-                    <?php $i++; endforeach ?> 
 
-                    </tbody>
-                </table>
-            </div>
-        </div>   
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <a href="reporteBienesSC.php" class="btn btn-md btn-warning btn-block" name="btnAgregarDetalle" id="btnAgregarDetalle" target="_blank"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
+        </div>
+    </div>
+
+ 
       
-        <div class="row form-group">
-            <div class="col-md-offset-2 col-md-8">
-                <a href="reporteDetalles.php?id=<?php echo $_GET['id']; ?>" class="btn btn-md btn-warning btn-block" target="_blank"><span class="glyphicon glyphicon-duplicate pull-left"></span> GENERAR DOCUMENTO PDF</a>
-            </div>
-        </div> 
-
-
-     </div> <!-- /container -->
+    </div> <!-- /container -->
 
     <!--<script src="../js/jquery.js"></script>-->
     <script src="../js/bootstrap.min.js"></script>
