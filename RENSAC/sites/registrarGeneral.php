@@ -17,13 +17,16 @@
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <title>Inventario General</title>
     <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="../js/inventario.js"></script>
     <link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/theme.css">
-
     <link rel="stylesheet" href="../css/alertify.core.css" />
     <link rel="stylesheet" href="../css/alertify.default.css" />
     <script type="text/javascript" src="../js/alertify.js"></script>
+    
+    <script src="../tablaedit/jquery.tabledit.js"></script>
+
   </head>
 
   <body role="document">
@@ -132,7 +135,12 @@
                         <div class="row form-group">
                           <div class="col-md-4">
                               <label for="codigoInventario">CÓDIGO INVENTARIO ANTIGUO</label>
+                              <div class="input-group"> 
                               <input type="text"  name="codigoInventario" id="txtcodigoInventario" class="form-control" placeholder="Cod. Inventario Antiguo"/>
+                              <span class="input-group-btn">
+                                <button id="btnVerAnterior" class="btn btn-default glyphicon glyphicon-search" type="button" title="Buscar bien por el código anterior."></button>
+                              </span>
+                            </div>    
                           </div>
                           <div class="col-md-4">
                               <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
@@ -154,6 +162,30 @@
                               </span>
                             </div>
                           </div>
+                        </div>
+                        <div class="row form-group">  
+                          <div class="col-md-5 ">
+                                <label for="anoInventario">AÑO DE INVENTARIO</label>
+                                <br>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2008" value="8" checked> 2008
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2009" value="9"> 2009
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2010" value="10"> 2010
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2011" value="11"> 2011
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2012" value="12"> 2012
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2013" value="13"> 2013
+                                </label>
+                            </div>
                         </div>
                          <legend class="scheduler-border">Descripción del Bien</legend>
                          <div class="row form-group">
@@ -219,7 +251,7 @@
                               <div class="col-md-2">                                 
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" name="etiquetado" id="chkEtiquetado"> Etiquetado
+                                      <input type="checkbox" name="etiquetado" id="chkEtiquetado" checked> Etiquetado
                                     </label>
                                   </div>
                               </div>
@@ -229,8 +261,15 @@
                                       <input type="checkbox" name="operativo" id="chkOperativo" checked> Operativo
                                     </label>
                                   </div>
+                              </div>                              
+                            </div>   
+
+                            <div class="row form-group">
+                              <div class="col-md-12"> 
+                                <label for="observacion">OBSERVACIÓN</label>
+                                <input type="text"  name="observacion" id="txtobservacion" class="form-control" placeholder="Ingrese una observación"/>
                               </div>
-                            </div>              
+                            </div>           
 
                          </div>
                         <div class="row form-group">
@@ -254,6 +293,8 @@
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Observación</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Opción</th>
                               </tr>
                               <tr>
                                   <th class="text-center" style="vertical-align: middle;">Denominación</th>
@@ -272,11 +313,57 @@
                       </table>
                     </div>
                 </div>
+                <div class="row">
+                      <div class="col-md-12 table-responsive">
+                        <table class="table table-striped table-bordered" id="example">
+  <caption>
+  Click the table cells to edit.
+  </caption>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Mark</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Mark" style="display: none;" disabled=""></td>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Otto</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="Otto" style="display: none;" disabled=""></td>
+      <td class="tabledit-edit-mode" style="cursor: pointer;"><span class="tabledit-span" style="display: none;">@mdo</span><select class="tabledit-input form-control input-sm" name="Username" style=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Jacob</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Jacob" style="display: none;" disabled=""></td>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Thornton</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="Thornton" style="display: none;" disabled=""></td>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">@fat</span><select class="tabledit-input form-control input-sm" name="Username" style="display: none;" disabled=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Larry</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Larry" style="display: none;" disabled=""></td>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span" style="display: inline;">the Bird</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="the Bird" style="display: none;" disabled=""></td>
+      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">@twitter</span><select class="tabledit-input form-control input-sm" name="Username" style="display: none;" disabled=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
+    </tr>
+  </tbody>
+</table>
+                    </div>
+                </div>
         </div>
        
     </div> <!-- /container -->
 
+    <script type="text/javascript">
+    $('#example').Tabledit({
 
+columns: {
+  identifier: [0, 'id'],                    
+  editable: [[1, 'First Name'], [2, 'Last Name']]
+}
+
+});
+    </script>
 
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
