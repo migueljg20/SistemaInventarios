@@ -1,5 +1,7 @@
 $(document).on('ready', funcPrincipal);
 
+var $formEditar;
+
 function funcPrincipal() {
     $('#formDetalle').on('submit', agregarFila);
     $('#formCabecera').on('submit', agregarCabecera);
@@ -8,7 +10,10 @@ function funcPrincipal() {
     $('#btnVerCodInventario2015').on('click', verInventario2015);
     $('#btnVerificarCodBarras').on('click', verificarCodBarras);
     $('#btnVerAnterior').on('click', verificarCodAnterior);
-    $('#detalleInventario').editable();
+    $(document).on('click', '[data-editar]', mostrarModal);
+    $formEditar = $('#formEditar');
+    $('#btnCancelar').on('click', cerrarModal);
+    $formEditar.on('submit', guardarCambios);
 }
 
 function agregarFila() {
@@ -95,7 +100,7 @@ function agregarFila() {
                 alertify.error(data.mensaje);
             }else{                
                 alertify.success(data.mensaje);
-                    $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td><td>'+obser+'</td><td></td></tr>');
+                    $('tbody').append('<tr><td data-i></td><td data-c1>'+cod1+'</td><td data-c2>'+cod2+'</td><td data-c3>'+codbar+'</td><td data-d>'+deno+'</td><td data-ma>'+marc+'</td><td data-mo>'+model+'</td><td data-se>'+serie+'</td><td data-co>'+color+'</td><td data-la>'+largo+'</td><td data-an>'+ancho+'</td><td data-al>'+alto+'</td><td data-es>'+estado+'</td><td data-et>'+etiquetado+'</td><td data-op>'+operativo+'</td><td data-ob>'+obser+'</td><td><button class="btn btn-default glyphicon glyphicon-pencil" data-editar="'+cod2+'"></button></td></tr>');
                      actualizarEnumeracion();
                   
                     $('#txtcodigoInventario').val('');
@@ -298,8 +303,8 @@ function verDetalles(cod){
                 //LIMPIAR TABLA
                 $('#detalleInventario tbody').empty();
                 for(var i=0;i<=data.longitud;i++)
-                {
-                    $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td><td>'+data.observacion[i]+'</td></tr>');
+                {                    
+                    $('tbody').append('<tr><td data-i></td><td data-c1>'+data.cia[i]+'</td><td data-c2>'+data.ci[i]+'</td><td data-c3>'+data.codbar[i]+'</td><td data-d>'+data.deno[i]+'</td><td data-ma>'+data.marc[i]+'</td><td data-mo>'+data.model[i]+'</td><td data-se>'+data.serie[i]+'</td><td data-co>'+data.color[i]+'</td><td data-la>'+data.largo[i]+'</td><td data-an>'+data.ancho[i]+'</td><td data-al>'+data.alto[i]+'</td><td data-es>'+data.estado[i]+'</td><td data-et>'+data.etiquetado[i]+'</td><td data-op>'+data.operativo[i]+'</td><td data-ob>'+data.observacion[i]+'</td><td><button class="btn btn-default glyphicon glyphicon-pencil" data-editar="'+data.ci[i]+'"></button></td></tr>');
                      actualizarEnumeracion();    
                 }  
             }                
@@ -398,4 +403,165 @@ function verificarCodAnterior(){
             } 
         }
     });
+}
+
+var $filaEditar;
+
+function mostrarModal() {
+    // Cargar los datos al modal
+    $filaEditar = $(this).parents('tr');
+    var id = $(this).data('editar');
+    
+
+    var cod1 = $filaEditar.find('[data-c1]').text();
+    var cod2 = $filaEditar.find('[data-c2]').text();
+    var codbar = $filaEditar.find('[data-c3]').text();
+    var deno = $filaEditar.find('[data-d]').text();
+    var marc = $filaEditar.find('[data-ma]').text();
+    var model = $filaEditar.find('[data-mo]').text();
+    var serie = $filaEditar.find('[data-se]').text();
+    var color = $filaEditar.find('[data-co]').text();
+    var largo = $filaEditar.find('[data-la]').text();
+    var ancho = $filaEditar.find('[data-an]').text();
+    var alto = $filaEditar.find('[data-al]').text();
+    var estado = $filaEditar.find('[data-es]').text();
+    var etiquetado = $filaEditar.find('[data-et]').text();
+    var operativo = $filaEditar.find('[data-op]').text();
+    var observacion = $filaEditar.find('[data-ob]').text();
+    
+
+    $formEditar.find('[name="id"]').val(id);
+    $formEditar.find('[name="codigoInventario"]').val(cod1);
+    $formEditar.find('[name="codigoInventario2015"]').val(cod2);
+    $formEditar.find('[name="codigobarras"]').val(codbar);
+    $formEditar.find('[name="denominacion"]').val(deno);
+    $formEditar.find('[name="marca"]').val(marc);
+    $formEditar.find('[name="modelo"]').val(model);
+    $formEditar.find('[name="serie"]').val(serie);
+    $formEditar.find('[name="color"]').val(color);
+    $formEditar.find('[name="largo"]').val(largo);
+    $formEditar.find('[name="ancho"]').val(ancho);
+    $formEditar.find('[name="alto"]').val(alto);
+    $formEditar.find("input[name=estadoConservacionM][value='"+estado+"']").prop("checked",true);
+    if(etiquetado=='SI'){
+        $formEditar.find('[name="etiquetado"]').prop("checked", true);
+    }else{
+        $formEditar.find('[name="etiquetado"]').prop("checked", false);
+    }
+    if(operativo=='O'){
+        $formEditar.find('[name="operativo"]').prop("checked", true);
+    }else{
+        $formEditar.find('[name="operativo"]').prop("checked", false);
+    }  
+    $formEditar.find('[name="observacion"]').val(observacion);
+
+       // Mostrar el modal
+    $('#modalEditar').modal('show');
+}
+
+function cerrarModal(){
+    $formEditar.find('[name="id"]').val('');
+    $formEditar.find('[name="codigoInventario"]').val('');
+    $formEditar.find('[name="codigoInventario2015"]').val('');
+    $formEditar.find('[name="codigobarras"]').val('');
+    $formEditar.find('[name="denominacion"]').val('');
+    $formEditar.find('[name="marca"]').val('');
+    $formEditar.find('[name="modelo"]').val('');
+    $formEditar.find('[name="serie"]').val('');
+    $formEditar.find('[name="color"]').val('');
+    $formEditar.find('[name="largo"]').val('');
+    $formEditar.find('[name="ancho"]').val('');
+    $formEditar.find('[name="alto"]').val('');
+       
+    
+    $formEditar.find('[name="observacion"]').val('');
+
+    $('#modalEditar').modal('hide');
+}
+
+function guardarCambios(){
+    event.preventDefault();
+
+    var cod1 = $('#txtcodigoInventarioM').val();
+    var cod2 = $('#txtcodigoInventario2015M').val();
+    var codbar = $('#txtcodigobarrasM').val();
+    var deno = $('#txtdenominacionM').val();
+    var color = $('#txtcolorM').val();
+    var marc = $('#txtmarcaM').val();
+    var model = $('#txtmodeloM').val();
+    var serie = $('#txtserieM').val();
+    var largo = $('#txtlargoM').val();
+    var ancho = $('#txtanchoM').val();
+    var alto = $('#txtaltoM').val();
+    var estado = $('input:radio[name=estadoConservacionM]:checked').val();
+    var etiquetado;
+    var obser = $('#txtobservacionM').val();
+    if($("#chkEtiquetadoM").is(':checked')) {
+        etiquetado = 'SI';
+    } else {
+        etiquetado = 'NO';
+    }
+    var operativo;
+    if($("#chkOperativoM").is(':checked')) {
+        operativo = 'O';
+    } else {
+        operativo = 'I';
+    }
+
+    if(cod2.length == 0)
+    {
+        alertify.error('Debe asignarse un codigo de inventario actual!');
+        return;
+    }
+    if(cod2.length != 5)
+    {
+        alertify.error('El codigo de inventario debe tener 5 cifras obligatoriamente!');
+        return;
+    }
+    //if(codbar.length == 0)
+    //{
+    //    alertify.error('Debe asignarse un codigo de barras al bien!');
+    //    return;
+    //}
+    var id = $('#idEdit').val();
+
+
+
+    var datosEnviados = 
+    {
+       'id' : id,
+       'codigoAntiguo' : cod1,
+       'codigoInventario' : cod2,
+       'codigoBarras' : codbar,
+       'denominacion' : deno,
+       'marca' :  marc,
+       'modelo' : model,
+       'serie' : serie,
+       'color' : color,
+       'largo' : largo,
+       'ancho' : ancho,
+       'alto' : alto,
+       'estado' : estado,
+       'etiquetado' : etiquetado,
+       'situacion' : operativo,
+       'observacion' : obser
+    };
+
+     
+       $.ajax({
+        type : 'POST',
+        url : '../scripts/modificarDetalle.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error) {
+                alertify.error(data.mensaje);
+            }else{                
+                alertify.success(data.mensaje);
+                    // falta limpiar
+                cerrarModal();
+            }             
+        } 
+    });   
 }
