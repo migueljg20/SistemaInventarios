@@ -13,6 +13,7 @@
 	$estado = array();
 	$etiquetado = array();
 	$operativo = array();
+	$observacion = array();
 	$i = 0;
 
 	$con=mysqli_connect('localhost','root','','redempresarial');
@@ -38,6 +39,7 @@
 			$estado[$i] = $detalle[12];
 			$etiquetado[$i] = $detalle[13];
 			$operativo[$i] = $detalle[14];
+			$observacion[$i] = $detalle[15];
 			$i++;
 		}
 	   $datos['cia'] = $cia;
@@ -54,6 +56,7 @@
 	   $datos['estado']= $estado;
 	   $datos['etiquetado']= $etiquetado;
 	   $datos['operativo']= $operativo;
+	   $datos['observacion']= $observacion;
 	   $datos['error'] = false;
 
 	   $datos['longitud'] = $i-1;

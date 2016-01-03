@@ -60,6 +60,7 @@
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Observación</th>
                               </tr>
                               <tr>
                                   <th class="text-center" style="vertical-align: middle;">Denominación</th>
@@ -92,7 +93,8 @@
                             <td><?= $listado[11] ?></td>
                             <td><?= $listado[12] ?></td>
                             <td><?= $listado[13] ?></td>
-                            <td><?= $listado[14] ?></td>                                                                   
+                            <td><?= $listado[14] ?></td> 
+                            <td><?= $listado[15] ?></td>                                                                   
                         </tr>
                     <?php $i++; endforeach ?> 
 

@@ -132,7 +132,12 @@
                         <div class="row form-group">
                           <div class="col-md-4">
                               <label for="codigoInventario">CÓDIGO INVENTARIO ANTIGUO</label>
+                              <div class="input-group"> 
                               <input type="text"  name="codigoInventario" id="txtcodigoInventario" class="form-control" placeholder="Cod. Inventario Antiguo"/>
+                              <span class="input-group-btn">
+                                <button id="btnVerAnterior" class="btn btn-default glyphicon glyphicon-search" type="button" title="Buscar bien por el código anterior."></button>
+                              </span>
+                            </div>    
                           </div>
                           <div class="col-md-4">
                               <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
@@ -154,6 +159,30 @@
                               </span>
                             </div>
                           </div>
+                        </div>
+                        <div class="row form-group">  
+                          <div class="col-md-5 ">
+                                <label for="anoInventario">AÑO DE INVENTARIO</label>
+                                <br>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2008" value="8" checked> 2008
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2009" value="9"> 2009
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2010" value="10"> 2010
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2011" value="11"> 2011
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2012" value="12"> 2012
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="anoInventario" id="rb2013" value="13"> 2013
+                                </label>
+                            </div>
                         </div>
                          <legend class="scheduler-border">Descripción del Bien</legend>
                          <div class="row form-group">
@@ -219,7 +248,7 @@
                               <div class="col-md-2">                                 
                                   <div class="checkbox">
                                     <label>
-                                      <input type="checkbox" name="etiquetado" id="chkEtiquetado"> Etiquetado
+                                      <input type="checkbox" name="etiquetado" id="chkEtiquetado" checked> Etiquetado
                                     </label>
                                   </div>
                               </div>
@@ -229,8 +258,15 @@
                                       <input type="checkbox" name="operativo" id="chkOperativo" checked> Operativo
                                     </label>
                                   </div>
+                              </div>                              
+                            </div>   
+
+                            <div class="row form-group">
+                              <div class="col-md-12"> 
+                                <label for="observacion">OBSERVACIÓN</label>
+                                <input type="text"  name="observacion" id="txtobservacion" class="form-control" placeholder="Ingrese una observación"/>
                               </div>
-                            </div>              
+                            </div>           
 
                          </div>
                         <div class="row form-group">
@@ -254,6 +290,7 @@
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Estado</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Etiq.</th>
                                   <th rowspan="2" class="text-center" style="vertical-align: middle;">Situa.</th>
+                                  <th rowspan="2" class="text-center" style="vertical-align: middle;">Observación</th>
                               </tr>
                               <tr>
                                   <th class="text-center" style="vertical-align: middle;">Denominación</th>

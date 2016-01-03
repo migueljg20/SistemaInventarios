@@ -74,6 +74,7 @@ create table invAlmacenDetalle
 	estado char(1),
 	etiquetado char(2),
 	situacion char(1),
+	observacion text,
 	PRIMARY KEY(idInv, codigoInventario),
 	FOREIGN KEY (idInv) REFERENCES invAlmacenCabecera(idInv)
 );

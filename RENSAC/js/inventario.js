@@ -1,6 +1,5 @@
 $(document).on('ready', funcPrincipal);
 
-
 function funcPrincipal() {
     $('#formDetalle').on('submit', agregarFila);
     $('#formCabecera').on('submit', agregarCabecera);
@@ -8,6 +7,7 @@ function funcPrincipal() {
     $('#verNumeroInventario').on('click', verInventario);
     $('#btnVerCodInventario2015').on('click', verInventario2015);
     $('#btnVerificarCodBarras').on('click', verificarCodBarras);
+    $('#btnVerAnterior').on('click', verificarCodAnterior);
 }
 
 function agregarFila() {
@@ -34,6 +34,7 @@ function agregarFila() {
     var alto = $('#txtalto').val();
     var estado = $('input:radio[name=estadoConservacion]:checked').val();
     var etiquetado;
+    var obser = $('#txtobservacion').val();
     if($("#chkEtiquetado").is(':checked')) {
         etiquetado = 'SI';
     } else {
@@ -49,6 +50,11 @@ function agregarFila() {
     if(cod2.length == 0)
     {
         alertify.error('Debe asignarse un codigo de inventario actual!');
+        return;
+    }
+    if(cod2.length != 5)
+    {
+        alertify.error('El codigo de inventario debe tener 5 cifras obligatoriamente!');
         return;
     }
     //if(codbar.length == 0)
@@ -73,7 +79,8 @@ function agregarFila() {
        'alto' : alto,
        'estado' : estado,
        'etiquetado' : etiquetado,
-       'situacion' : operativo
+       'situacion' : operativo,
+       'observacion' : obser
     };
 
        $.ajax({
@@ -88,7 +95,7 @@ function agregarFila() {
             }else{                
                 alertify.success(data.mensaje);
 
-                    $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td></tr>');
+                    $('tbody').append('<tr><td data-i></td><td>'+cod1+'</td><td>'+cod2+'</td><td>'+codbar+'</td><td>'+deno+'</td><td>'+marc+'</td><td>'+model+'</td><td>'+serie+'</td><td>'+color+'</td><td>'+largo+'</td><td>'+ancho+'</td><td>'+alto+'</td><td>'+estado+'</td><td>'+etiquetado+'</td><td>'+operativo+'</td><td>'+obser+'</td></tr>');
                      actualizarEnumeracion();
                   
                     $('#txtcodigoInventario').val('');
@@ -103,8 +110,9 @@ function agregarFila() {
                     $('#txtancho').val('');
                     $('#txtalto').val('');
                     $("#rbNuevo").attr('checked', 'checked');
-                    $("#chkEtiquetado").attr('checked', false);
+                    $("#chkEtiquetado").attr('checked', true);
                     $("#chkOperativo").attr('checked', true);
+                    $('#txtobservacion').val('');
 
             }             
         } 
@@ -143,6 +151,11 @@ function agregarCabecera() {
     if(idInve.length == 0)
     {
         alertify.error("El campo del número de Inventario es obligatorio!");
+        return;
+    }
+    if(idInve.length != 6)
+    {
+        alertify.error("El número de Inventario debe tener 6 dígitos obligatoriamente!");
         return;
     }
     if(fecha.length == 0)
@@ -286,7 +299,7 @@ function verDetalles(cod){
                 $('#detalleInventario tbody').empty();
                 for(var i=0;i<=data.longitud;i++)
                 {
-                    $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td></tr>');
+                    $('tbody').append('<tr><td data-i></td><td>'+data.cia[i]+'</td><td>'+data.ci[i]+'</td><td>'+data.codbar[i]+'</td><td>'+data.deno[i]+'</td><td>'+data.marc[i]+'</td><td>'+data.model[i]+'</td><td>'+data.serie[i]+'</td><td>'+data.color[i]+'</td><td>'+data.largo[i]+'</td><td>'+data.ancho[i]+'</td><td>'+data.alto[i]+'</td><td>'+data.estado[i]+'</td><td>'+data.etiquetado[i]+'</td><td>'+data.operativo[i]+'</td><td>'+data.observacion[i]+'</td></tr>');
                      actualizarEnumeracion();    
                 }  
             }                
@@ -349,6 +362,39 @@ function verificarCodBarras(){
             else
             {
                 alertify.success(data.mensaje);                 
+            } 
+        }
+    });
+}
+
+function verificarCodAnterior(){
+    var codigo = $('#txtcodigoInventario').val();
+    var ano = $('input:radio[name=anoInventario]:checked').val();
+
+    var datosEnviados = 
+    {
+        'codigoAnterior' : codigo,
+        'tipo' : ano   
+    };
+    if(codigo.length == 0){
+        alertify.log('Debe ingresar código.');
+        return;
+    }
+
+    $.ajax({
+        type : 'POST',
+        url : '../scripts/verCodAnterior.php',
+        data : datosEnviados,
+        dataType : 'json',
+        encode : true,
+        success: function(data){
+            if (data.error){                
+               alertify.error(data.mensaje);              
+            }
+            else
+            {
+               $('#txtcodigobarras').val(data.codigoActivo);
+               $('#txtdenominacion').val(data.denominacion);                              
             } 
         }
     });
