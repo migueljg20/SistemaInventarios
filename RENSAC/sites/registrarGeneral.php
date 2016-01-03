@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../css/alertify.default.css" />
     <script type="text/javascript" src="../js/alertify.js"></script>
     
-    <script src="../tablaedit/jquery.tabledit.js"></script>
+    
 
   </head>
 
@@ -312,59 +312,144 @@
                           </tbody>
                       </table>
                     </div>
-                </div>
-                <div class="row">
-                      <div class="col-md-12 table-responsive">
-                        <table class="table table-striped table-bordered" id="example">
-  <caption>
-  Click the table cells to edit.
-  </caption>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Mark</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Mark" style="display: none;" disabled=""></td>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Otto</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="Otto" style="display: none;" disabled=""></td>
-      <td class="tabledit-edit-mode" style="cursor: pointer;"><span class="tabledit-span" style="display: none;">@mdo</span><select class="tabledit-input form-control input-sm" name="Username" style=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Jacob</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Jacob" style="display: none;" disabled=""></td>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Thornton</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="Thornton" style="display: none;" disabled=""></td>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">@fat</span><select class="tabledit-input form-control input-sm" name="Username" style="display: none;" disabled=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">Larry</span><input class="tabledit-input form-control input-sm" type="text" name="First Name" value="Larry" style="display: none;" disabled=""></td>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span" style="display: inline;">the Bird</span><input class="tabledit-input form-control input-sm" type="text" name="Last Name" value="the Bird" style="display: none;" disabled=""></td>
-      <td class="tabledit-view-mode" style="cursor: pointer;"><span class="tabledit-span">@twitter</span><select class="tabledit-input form-control input-sm" name="Username" style="display: none;" disabled=""><option value="1">@mdo</option><option value="2">@fat</option><option value="3">@twitter</option></select></td>
-    </tr>
-  </tbody>
-</table>
-                    </div>
-                </div>
+                </div>          
         </div>
+
+
+        <div id="modalEditar" class="modal fade" role="dialog" style="width: 100%" >
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ventana de edición</h4>
+                </div>
+                <form action="#" id="formEditar" method="POST" style="font-size: 8pt">
+                    <div class="modal-body">                           
+                        <input type="hidden" id="idEdit" name="id" value=""/>
+                        <legend class="scheduler-border">Bienes</legend>
+                        <div class="row form-group">
+                          <div class="col-md-4">
+                              <label for="codigoInventario">CÓDIGO INVENTARIO ANTIGUO</label>
+                              <div class="input-group"> 
+                              <input type="text"  name="codigoInventario" id="txtcodigoInventarioM" class="form-control" placeholder="Cod. Inventario Antiguo"/>
+                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4">
+                              <label for="codigoInventario2015">CÓDIGO INVENTARIO 2015</label>
+                              <div class="input-group">
+                                <input type="text"  name="codigoInventario2015" id="txtcodigoInventario2015M" class="form-control" placeholder="Cod. Inventario 2015" required/>
+                                
+                              </div>
+                             
+                          </div>
+                          <div class="col-md-4">
+                             <label for="codigobarras">CÓDIGO DE BARRAS</label>
+                             <div class="input-group">                                 
+                              <input type="text"  name="codigobarras" id="txtcodigobarrasM" class="form-control" placeholder="Cod. Barras"/>
+                              
+                            </div>
+                          </div>
+                        </div>                        
+                         <legend class="scheduler-border">Descripción del Bien</legend>
+                         <div class="row form-group">
+                           <div class="col-md-9">
+                              <label for="denominacion">DENOMINACIÓN</label>
+                              <input type="text"  name="denominacion" id="txtdenominacionM" class="form-control" placeholder="Ingrese una denominación" required/>
+                           </div>
+                           <div class="col-md-3">
+                              <label for="color">COLOR</label>
+                              <input type="text"  name="color" id="txtcolorM" class="form-control" placeholder="Ingrese un color"/>
+                           </div>
+                         </div>
+                          <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="marca">MARCA</label>
+                                <input type="text"  name="marca" id="txtmarcaM" class="form-control" placeholder="Ingrese una marca"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="modelo">MODELO</label>
+                                <input type="text"  name="modelo" id="txtmodeloM" class="form-control" placeholder="Ingrese un modelo"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="serie">SERIE</label>
+                                <input type="text"  name="serie" id="txtserieM" class="form-control" placeholder="Ingrese una serie"/>
+                            </div>
+                          </div> 
+
+
+                           <legend class="scheduler-border">Dimensiones</legend>     
+                           <div class="row form-group">
+                              <div class="col-md-2">
+                                <label for="largo">LARGO</label>
+                                <input type="double"  name="largo" id="txtlargoM" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="ancho">ANCHO</label>
+                                <input type="double"  name="ancho" id="txtanchoM" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="alto">ALTO</label>
+                                <input type="double"  name="alto" id="txtaltoM" class="form-control" placeholder="En metros"/>
+                            </div>
+                            <div class="col-md-5 col-md-offset-1">
+                                <label for="estado">ESTADO DE CONSERVACIÓN</label>
+                                <br>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacionM" id="rbNuevoM" value="N" > N
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacionM" id="rbBuenoM" value="B"> B
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacionM" id="rbRegularM" value="R"> R
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="estadoConservacionM" id="rbMaloM" value="M"> M
+                                </label>
+                            </div>
+                            
+                           </div>  
+
+                           <div class="row form-group">
+                              <div class="col-md-2">                                 
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="etiquetado" id="chkEtiquetadoM" > Etiquetado
+                                    </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-2">                                 
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="operativo" id="chkOperativoM" > Operativo
+                                    </label>
+                                  </div>
+                              </div>                              
+                            </div>   
+
+                            <div class="row form-group">
+                              <div class="col-md-12"> 
+                                <label for="observacion">OBSERVACIÓN</label>
+                                <input type="text"  name="observacion" id="txtobservacionM" class="form-control" placeholder="Ingrese una observación"/>
+                              </div>
+                            </div> 
+                          </div>                         
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" id="btnCancelar">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Guardar cambios</button>
+                        </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
        
     </div> <!-- /container -->
 
-    <script type="text/javascript">
-    $('#example').Tabledit({
-
-columns: {
-  identifier: [0, 'id'],                    
-  editable: [[1, 'First Name'], [2, 'Last Name']]
-}
-
-});
-    </script>
-
+    
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
